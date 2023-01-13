@@ -1,0 +1,38 @@
+CALL apoc.load.json("https://raw.githubusercontent.com/neostrange/CveParse/main/nvd1.json", null, {failOnError:false})
+YIELD value
+WITH value  AS data
+UNWIND data.cve.problemtype.problemtype_data AS problem
+UNWIND problem.description AS problem_desc
+MERGE (cve:CVE {id: data.cve.CVE_data_meta.ID})
+ON CREATE SET cve.assigner = data.cve.CVE_data_meta.ASSIGNER, cve.problem_desc = problem_desc.value
+
+WITH data, cve
+UNWIND data.cve.references.reference_data AS ref
+MERGE (reference:Reference {url: ref.url})
+ON CREATE SET reference.name = ref.name, reference.refsource = ref.refsource
+
+WITH data, cve, reference, ref
+UNWIND ref.tags AS tag
+MERGE (tagNode:Tag {name: tag, id: tag})
+MERGE (reference)-[:TAGGED_WITH]->(tagNode)
+
+WITH data, cve, reference
+UNWIND data.cve.description.description_data AS desc
+MERGE (description:Description {lang: desc.lang})
+ON CREATE SET description.value = desc.value
+
+WITH data, cve, reference, description
+MERGE (cve)-[:HAS_REFERENCE]->(reference)
+MERGE (cve)-[:HAS_DESCRIPTION]->(description)
+
+WITH data, cve
+UNWIND data.configurations.nodes as config
+MERGE (configNode:CONFIG {operator: config.operator})
+WITH data, cve, configNode, config
+UNWIND config.cpe_match AS cpe
+MERGE (cpeNode:CPE {cpe23Uri: cpe.cpe23Uri})
+ON CREATE SET cpeNode.vulnerable = cpe.vulnerable
+
+WITH cve, configNode, cpeNode
+MERGE (cve)-[:AFFECTS]->(configNode)
+MERGE (configNode)-[:HAS_CPE]->(cpeNode)
