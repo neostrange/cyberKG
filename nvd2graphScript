@@ -29,10 +29,31 @@ WITH data, cve
 UNWIND data.configurations.nodes as config
 MERGE (configNode:CONFIG {operator: config.operator})
 WITH data, cve, configNode, config
-UNWIND config.cpe_match AS cpe
+UNWIND config.children as configChild
+UNWIND configChild.cpe_match AS cpe
 MERGE (cpeNode:CPE {cpe23Uri: cpe.cpe23Uri})
 ON CREATE SET cpeNode.vulnerable = cpe.vulnerable
 
-WITH cve, configNode, cpeNode
+WITH data, cve, configNode, cpeNode
 MERGE (cve)-[:AFFECTS]->(configNode)
 MERGE (configNode)-[:HAS_CPE]->(cpeNode)
+
+WITH data, cve,data.impact.baseMetricV3 as baseMetricV3
+MERGE (cve)-[:HAS_IMPACT]->(impact:IMPACT {exploitabilityScore: baseMetricV3.exploitabilityScore, 
+                                           impactScore: baseMetricV3.impactScore
+})
+
+WITH data, impact, data.impact.baseMetricV3.cvssV3 as cvssV3
+MERGE (impact)-[:HAS_CVSSV3]->(cvssv3:CVSSV3 {baseMetric: cvssV3.version,
+                                              vectorString:cvssV3.vectorString,
+                                              attackVector:cvssV3.attackVector,
+                                              attackComplexity:cvssV3.attackComplexity,
+                                              privilegesRequired:cvssV3.privilegesRequired,
+                                              userInteraction:cvssV3.userInteraction,
+                                              scope:cvssV3.scope,
+                                              confidentialityImpact:cvssV3.confidentialityImpact,
+                                              integrityImpact:cvssV3.integrityImpact,
+                                              availabilityImpact:cvssV3.availabilityImpact,
+                                              baseScore:cvssV3.baseScore,
+                                              baseSeverity:cvssV3.baseSeverity 
+})
