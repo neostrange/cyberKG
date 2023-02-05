@@ -1,0 +1,79 @@
+CALL apoc.load.json("https://raw.githubusercontent.com/neostrange/CveParse/main/nvd3.json", null, {failOnError:false})
+YIELD value
+WITH value  AS data
+
+
+UNWIND data.CVE_Items as item
+MERGE (cve:CVE {id: item.cve.CVE_data_meta.ID})
+ON CREATE SET cve.assigner = item.cve.CVE_data_meta.ASSIGNER
+
+WITH cve, item
+UNWIND item.cve.problemtype.problemtype_data AS problem
+UNWIND problem.description AS problem_desc
+MERGE (cve)-[:PROBLEM_TYPE]->(problemType:ProblemType {lang: problem_desc.lang, value: problem_desc.value})
+//MERGE (cve)-[:PROBLEM_TYPE]->(problemType)
+
+
+WITH item, cve
+UNWIND item.cve.references.reference_data AS ref
+MERGE (reference:Reference {url: ref.url})
+ON CREATE SET reference.name = ref.name, reference.refsource = ref.refsource
+
+WITH item, cve, reference, ref
+UNWIND ref.tags AS tag
+MERGE (tagNode:Tag {name: tag, id: tag})
+MERGE (reference)-[:TAGGED_WITH]->(tagNode)
+
+WITH item, cve, reference
+UNWIND item.cve.description.description_data AS desc
+MERGE (description:Description {lang: desc.lang, value:desc.value, cveId:cve.id})
+//ON CREATE SET description.value = desc.value
+
+//WITH item, cve, reference, description
+MERGE (cve)-[:HAS_REFERENCE]->(reference)
+MERGE (cve)-[:HAS_DESCRIPTION]->(description)
+
+
+
+WITH item, cve,item.impact.baseMetricV3 as baseMetricV3, item.impact.baseMetricV3.cvssV3 as cvssV3
+MERGE (cve)-[:HAS_IMPACT]->(impact:IMPACT {exploitabilityScore: baseMetricV3.exploitabilityScore, 
+                                           impactScore: baseMetricV3.impactScore, cveId: cve.id
+})-[:HAS_CVSSV3]->(cvssv3:CVSSV3 {version: cvssV3.version,
+                                              vectorString:cvssV3.vectorString,
+                                              attackVector:cvssV3.attackVector,
+                                              attackComplexity:cvssV3.attackComplexity,
+                                              privilegesRequired:cvssV3.privilegesRequired,
+                                              userInteraction:cvssV3.userInteraction,
+                                              scope:cvssV3.scope,
+                                              confidentialityImpact:cvssV3.confidentialityImpact,
+                                              integrityImpact:cvssV3.integrityImpact,
+                                              availabilityImpact:cvssV3.availabilityImpact,
+                                              baseScore:cvssV3.baseScore,
+                                              baseSeverity:cvssV3.baseSeverity 
+})
+
+
+
+WITH item.configurations AS configurations, cve
+MERGE (config:Config {version: configurations.CVE_data_version, cveId: cve.id})
+MERGE (cve)-[:HAS_CONFIG]->(config)
+
+WITH configurations, config, cve
+UNWIND configurations.nodes as node
+  // Each node has operator, cpe_match and  children
+  //create operator for the node
+  CREATE (op:Operator {operator: node.operator})
+  CREATE (config)-[:HAS_OPERATOR]->(op)
+  //create cpe_match for the node
+  FOREACH (cpe_match in node.cpe_match |
+    CREATE (cpeMatch:CpeMatch {vulnerable: cpe_match.vulnerable, uri: cpe_match.cpe23Uri})
+    CREATE (cpeMatch)-[:HAS_OPERATOR]->(op))
+
+    //children in each node -  each children then has operator, cpe_match and children
+    FOREACH (child IN node.children | 
+      CREATE (op1:Operator {operator: child.operator})
+      CREATE (op)-[:HAS_OPERATOR]->(op1)
+      FOREACH (cpe in child.cpe_match |
+        CREATE (cpeMatch:CpeMatch {vulnerable: cpe.vulnerable, uri: cpe.cpe23Uri})
+        MERGE (op1)-[:CPE_MATCH]->(cpeMatch))
+)
