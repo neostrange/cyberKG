@@ -45,7 +45,7 @@
  "taxonomy_mappings": "::TAXONOMY NAME:PLOVER:ENTRY NAME:SQL injection::TAXONOMY NAME:7 Pernicious Kingdoms:ENTRY NAME:SQL Injection::TAXONOMY NAME:CLASP:ENTRY NAME:SQL injection::TAXONOMY NAME:OWASP Top Ten 2007:ENTRY ID:A2:ENTRY NAME:Injection Flaws:MAPPING FIT:CWE More Specific::TAXONOMY NAME:OWASP Top Ten 2004:ENTRY ID:A1:ENTRY NAME:Unvalidated Input:MAPPING FIT:CWE More Specific::TAXONOMY NAME:OWASP Top Ten 2004:ENTRY ID:A6:ENTRY NAME:Injection Flaws:MAPPING FIT:CWE More Specific::TAXONOMY NAME:WASC:ENTRY ID:19:ENTRY NAME:SQL Injection::TAXONOMY NAME:Software Fault Patterns:ENTRY ID:SFP24:ENTRY NAME:Tainted input to command::TAXONOMY NAME:OMG ASCSM:ENTRY ID:ASCSM-CWE-89::TAXONOMY NAME:SEI CERT Oracle Coding Standard for Java:ENTRY ID:IDS00-J:ENTRY NAME:Prevent SQL injection:MAPPING FIT:Exact::",
  "related_attack_patterns": "::108::109::110::470::66::7::",
  "notes": "::TYPE:Relationship:NOTE:SQL injection can be resultant from special character mismanagement, MAID, or blacklist/whitelist problems. It can be primary to authentication errors.::"
- }
+ },
 	 
 {"cwe_id": "94",
  "name": "Improper Control of Generation of Code ('Code Injection')",
@@ -71,6 +71,7 @@
  "related_attack_patterns": "::242::35::77::",
  "notes": "::TYPE:Research Gap:NOTE:Many of these weaknesses are under-studied and under-researched, and terminology is not sufficiently precise.::"
 },
+
 {"cwe_id": "200",
  "name": "Exposure of Sensitive Information to an Unauthorized Actor",
  "weakness_abstraction": "Class",
@@ -117,8 +118,9 @@
  "affected_resources": "::File or Directory::",
  "taxonomy_mappings": "::TAXONOMY NAME:PLOVER:ENTRY NAME:Access Control List (ACL) errors::TAXONOMY NAME:WASC:ENTRY ID:2:ENTRY NAME:Insufficient Authorization::TAXONOMY NAME:7 Pernicious Kingdoms:ENTRY NAME:Missing Access Control::",
  "related_attack_patterns": "::19::441::478::479::502::503::536::546::550::551::552::556::558::562::563::564::578::",
- "notes": "::TYPE:Maintenance:NOTE:This item needs more work. Possible sub-categories include: * Trusted group includes undesired entities (partially covered by CWE-286) * Group can perform undesired actions * ACL parse error does not fail closed::"}
+ "notes": "::TYPE:Maintenance:NOTE:This item needs more work. Possible sub-categories include: * Trusted group includes undesired entities (partially covered by CWE-286) * Group can perform undesired actions * ACL parse error does not fail closed::"
  },
+
 {"cwe_id": "294",
  "name": "Authentication Bypass by Capture-replay",
  "weakness_abstraction": "Base",
