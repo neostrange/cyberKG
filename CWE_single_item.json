@@ -280,7 +280,8 @@
                 }}
         }
     },
-		  "CWE":{ 
+	{
+	"CWE":{ 
             "cwe_id": "89",
             "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')", 
             "weakness_abstraction": "Base",
@@ -821,7 +822,7 @@
 			
 		
 	
-		  
+}  
 		 ]
 } 
 			
