@@ -1,5 +1,5 @@
 {
-    "CWE_Items" :{
+    "CWE_Items" :[{
         "CWE":{ 
             "cwe_id": "79",
             "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')", 
@@ -278,7 +278,8 @@
                     "TYPE":"Relationship",
                     "NOTE":"There can be a close relationship between XSS and CSRF (CWE-352). An attacker might use CSRF in order to trick the victim into submitting requests to the server in which the requests contain an XSS payload. A well-known example of this was the Samy worm on MySpace [REF-956]. The worm used XSS to insert malicious HTML sequences into a user's profile and add the attacker as a MySpace friend. MySpace friends of that victim would then execute the payload to modify their own profiles, causing the worm to propagate exponentially. Since the victims did not intentionally insert the malicious script themselves, CSRF was a root cause."
                 }}
-        },     
+        }},
+        {     
         "CWE":{ 
             "cwe_id": "89",
             "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')", 
@@ -533,7 +534,8 @@
                     "TYPE": "Relationship",
                     "NOTE":"SQL injection can be resultant from special character mismanagement, MAID, or blacklist/whitelist problems. It can be primary to authentication errors."
                 }}
-        },     
+        }},
+        {     
 		"CWE":{ 
             "cwe_id": "94", 
             "name": "Improper Control of Generation of Code ('Code Injection')", 
@@ -715,7 +717,8 @@
                     "TYPE": "Research Gap",
                     "NOTE":"Many of these weaknesses are under-studied and under-researched, and terminology is not sufficiently precise."
                 }}
-        }, 
+        }},
+        { 
         "CWE": {
             "cwe_id": "200", 
             "name": "Exposure of Sensitive Information to an Unauthorized Actor", 
@@ -889,7 +892,8 @@
             }]},
             "related_attack_patterns": "::116::13::169::22::224::285::287::290::291::292::293::294::295::296::297::298::299::300::301::302::303::304::305::306::307::308::309::310::312::313::317::318::319::320::321::322::323::324::325::326::327::328::329::330::472::497::573::574::575::576::577::59::60::616::643::646::651::79::", 
             "notes": ""
-        },
+        }},
+        {
         "CWE": {
             "cwe_id": "284", 
             "name": "Improper Access Control", 
@@ -964,7 +968,8 @@
                     "TYPE": "Maintenance",
                     "NOTE":"This item needs more work. Possible sub-categories include: * Trusted group includes undesired entities (partially covered by CWE-286) * Group can perform undesired actions * ACL parse error does not fail closed"
                 }}
-        },
+        }},
+        {
         "CWE": {
             "cwe_id": "294", 
             "name": "Authentication Bypass by Capture-replay", 
@@ -1042,7 +1047,7 @@
             "related_attack_patterns": "::102::60::94::", 
             "notes": ""
         }
-    }
+    }]
 } 
 			
 		
