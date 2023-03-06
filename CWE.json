@@ -536,7 +536,7 @@
                 }}
         }},
         {     
-		"CWE":{ 
+	 "CWE":{ 
             "cwe_id": "94", 
             "name": "Improper Control of Generation of Code ('Code Injection')", 
             "weakness_abstraction": "Base", 
