@@ -1,4 +1,4 @@
-CALL apoc.load.json("https://raw.githubusercontent.com/neostrange/CveParse/main/cwe.json", null, {failOnError:false})
+CALL apoc.load.json("https://raw.githubusercontent.com/neostrange/CveParse/main/CWE.json", null, {failOnError:false})
 YIELD value
 WITH value  AS data
 //return data.CWE_Items[0].CWE.cwe_id
