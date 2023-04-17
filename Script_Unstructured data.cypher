@@ -11,7 +11,7 @@ CREATE (node1:Frame {text:"gains",type:"verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0012"})
 MERGE (frame:Frame {text:"gains"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)
+MERGE (description)-[:MAPPED_WITH]->(frame)
 
 CREATE (node1:Frame {text:"be",type:"verb"}),
        (node2:Frame_Argument{text:"an attacker who gains local membership to SAP_LocalAdmin",type:"ARG1"}),
@@ -24,7 +24,7 @@ CREATE (node1:Frame {text:"be",type:"verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0012"})
 MERGE (frame:Frame {text:"be"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"replace",type:"verb"}),
        (node2:Frame_Argument{text:"executables",type:"ARG1"}),
@@ -37,7 +37,7 @@ CREATE (node1:Frame {text:"replace",type:"verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0012"})
 MERGE (frame:Frame {text:"replace"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"started",type:"verb"}),
        (node2:Frame_Argument{text:"a malicious file",type:"ARG1"}),
@@ -52,7 +52,7 @@ CREATE (node1:Frame {text:"started",type:"verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0012"})
 MERGE (frame:Frame {text:"started"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"Note",type:"verb"}),
        (node2:Modifier_Location{text:"In SAP",type:"ARGM-LOC"}),
@@ -63,7 +63,7 @@ CREATE (node1:Frame {text:"Note",type:"verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0012"})
 MERGE (frame:Frame {text:"Note"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"denied",type:"Verb"}),
        (node2:Modifier_Manner{text:"by default all user members of",type:"ARGM-MNR"}),
@@ -76,7 +76,7 @@ CREATE (node1:Frame {text:"denied",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0012"})
 MERGE (frame:Frame {text:"denied"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"logon",type:"Verb"}),
        (node2:Frame_Argument{text:"locally",type:"ARG1"}),
@@ -87,7 +87,7 @@ CREATE (node1:Frame {text:"logon",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0012"})
 MERGE (frame:Frame {text:"logon"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"occur",type:"Verb"}),
        (node2:Frame_Argument{text:"this",type:"ARG1"}),
@@ -102,7 +102,7 @@ CREATE (node1:Frame {text:"occur",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0012"})
 MERGE (frame:Frame {text:"occur"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)    
+MERGE (description)-[:MAPPED_WITH]->(frame)    
 
 CREATE (node1:Frame {text:"compromised",type:"Verb"}),
        (node2:Frame_Argument{text:"the system",type:"ARG1"}),
@@ -113,7 +113,7 @@ CREATE (node1:Frame {text:"compromised",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0012"})
 MERGE (frame:Frame {text:"compromised"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"encode",type:"Verb"}),
        (node2:Frame_Argument{text:"The ABAP Keyword Documentation of SAP NetWeaver Application Server - versions 702 , 731 , 740 , 750 , 751 , 752 , 753 , 754 , 755 , 756 , 757 , for ABAP and ABAP Platform",type:"ARG0"}),
@@ -130,7 +130,7 @@ CREATE (node1:Frame {text:"encode",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0013"})
 MERGE (frame:Frame {text:"encode"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"controlled",type:"Verb"}),
        (node2:Frame_Argument{text:"user",type:"ARG0"}),
@@ -141,7 +141,7 @@ CREATE (node1:Frame {text:"controlled",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0013"})
 MERGE (frame:Frame {text:"controlled"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"cause",type:"Verb"}),
        (node2:Modifier_Location{text:"On successful exploitation",type:"ARGM-LOC"}),
@@ -156,7 +156,7 @@ CREATE (node1:Frame {text:"cause",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0013"})
 MERGE (frame:Frame {text:"cause"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"creates",type:"Verb"}),
        (node2:Frame_Argument{text:"SAP NetWeaver ABAP Server and ABAP Platform - versions SAP_BASIS 700 , 701 , 702 , 710 , 711 , 730 , 731 , 740 , 750 , 751 , 752 , 753 , 754 , 755 , 756 , 757 , KERNEL 7.22 , 7.53 , 7.77 , 7.81 , 7.85 , 7.89 , KRNL64UC 7.22 , 7.22EXT , 7.53 , KRNL64NUC 7.22 , 7.22EXT",type:"ARG0"}),
@@ -169,7 +169,7 @@ CREATE (node1:Frame {text:"creates",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0014"})
 MERGE (frame:Frame {text:"creates"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"lead",type:"Verb"}),
        (node2:Frame_Argument{text:"This",type:"ARG0"}),
@@ -182,7 +182,7 @@ CREATE (node1:Frame {text:"lead",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0014"})
 MERGE (frame:Frame {text:"lead"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"may",type:"Verb"}),
        (node2:Modifier_Modal{text:"could",type:"ARGM-MOD"}),
@@ -193,7 +193,7 @@ CREATE (node1:Frame {text:"may",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0014"})
 MERGE (frame:Frame {text:"may"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"exploited",type:"Verb"}),
        (node2:Frame_Argument{text:"This",type:"ARG1"}),
@@ -208,7 +208,7 @@ CREATE (node1:Frame {text:"exploited",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0014"})
 MERGE (frame:Frame {text:"exploited"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)     
+MERGE (description)-[:MAPPED_WITH]->(frame)     
 
 CREATE (node1:Frame {text:"return",type:"Verb"}),
        (node2:Frame_Argument{text:"some calls",type:"ARG0"}),
@@ -223,7 +223,7 @@ CREATE (node1:Frame {text:"return",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0015"})
 MERGE (frame:Frame {text:"return"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"calls",type:"Verb"}),
        (node2:Frame_Argument{text:"a custom application",type:"ARG0"}),
@@ -238,7 +238,7 @@ CREATE (node1:Frame {text:"calls",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0015"})
 MERGE (frame:Frame {text:"calls"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"be",type:"Verb"}),
        (node2:Frame_Argument{text:"a custom application that calls directly the jsp of Web Intelligence DHTML",type:"ARG1"}),
@@ -251,7 +251,7 @@ CREATE (node1:Frame {text:"be",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0015"})
 MERGE (frame:Frame {text:"be"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"cause",type:"Verb"}),
        (node2:Modifier_Location{text:"On successful exploitation",type:"ARGM-LOC"}),
@@ -266,7 +266,7 @@ CREATE (node1:Frame {text:"cause",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0015"})
 MERGE (frame:Frame {text:"cause"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"allows",type:"Verb"}),
        (node2:Frame_Argument{text:"SAP BPC MS 10.0 - version 810",type:"ARG0"}),
@@ -277,7 +277,7 @@ CREATE (node1:Frame {text:"allows",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0016"})
 MERGE (frame:Frame {text:"allows"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"execute",type:"Verb"}),
        (node2:Frame_Argument{text:"an unauthorized attacker",type:"ARG0"}),
@@ -288,7 +288,7 @@ CREATE (node1:Frame {text:"execute",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0016"})
 MERGE (frame:Frame {text:"execute"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)       
+MERGE (description)-[:MAPPED_WITH]->(frame)       
 
 CREATE (node1:Frame {text:"lead",type:"Verb"}),
        (node2:Frame_Argument{text:"The exploitation of this issue",type:"ARG0"}),
@@ -301,7 +301,7 @@ CREATE (node1:Frame {text:"lead",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0016"})
 MERGE (frame:Frame {text:"lead"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)    
+MERGE (description)-[:MAPPED_WITH]->(frame)    
 
 CREATE (node1:Frame {text:"could",type:"Verb"}),
        (node2:Frame_Argument{text:"The exploitation of this issue",type:"ARG0"}),
@@ -314,7 +314,7 @@ CREATE (node1:Frame {text:"could",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0016"})
 MERGE (frame:Frame {text:"could"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)     
+MERGE (description)-[:MAPPED_WITH]->(frame)     
 
 CREATE (node1:Frame {text:"allow",type:"Verb"}),
        (node2:Frame_Argument{text:"The exploitation of this issue",type:"ARG0"}),
@@ -327,7 +327,7 @@ CREATE (node1:Frame {text:"allow",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0016"})
 MERGE (frame:Frame {text:"allow"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"can",type:"Verb"}),
        (node2:Frame_Argument{text:"An unauthenticated attacker in SAP NetWeaver AS for Java - version 7.50",type:"ARG0"}),
@@ -338,7 +338,7 @@ CREATE (node1:Frame {text:"can",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"can"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"attach",type:"Verb"}),
        (node2:Frame_Argument{text:"An unauthenticated attacker in SAP NetWeaver AS for Java - version 7.50 , due to improper access control",type:"ARG0"}),
@@ -351,7 +351,7 @@ CREATE (node1:Frame {text:"attach",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"attach"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"make",type:"Verb"}),
        (node2:Frame_Argument{text:"An unauthenticated attacker in SAP NetWeaver AS for Java - version 7.50 , due to improper access control",type:"ARG0"}),
@@ -364,7 +364,7 @@ CREATE (node1:Frame {text:"make",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"make"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"used",type:"Verb"}),
        (node2:Frame_Argument{text:"access services",type:"ARG1"}),
@@ -379,7 +379,7 @@ CREATE (node1:Frame {text:"used",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"used"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"perform",type:"Verb"}),
        (node2:Frame_Argument{text:"access services",type:"ARG0"}),
@@ -390,7 +390,7 @@ CREATE (node1:Frame {text:"perform",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"perform"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"affecting",type:"Verb"}),
        (node2:Frame_Argument{text:"unauthorized operations",type:"ARG0"}),
@@ -401,7 +401,7 @@ CREATE (node1:Frame {text:"affecting",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"affecting"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)    
+MERGE (description)-[:MAPPED_WITH]->(frame)    
 
 CREATE (node1:Frame {text:"could",type:"Verb"}),
        (node2:Frame_Argument{text:"This",type:"ARG0"}),
@@ -412,7 +412,7 @@ CREATE (node1:Frame {text:"could",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"could"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)     
+MERGE (description)-[:MAPPED_WITH]->(frame)     
 
 CREATE (node1:Frame {text:"allow",type:"Verb"}),
        (node2:Frame_Argument{text:"This",type:"ARG0"}),
@@ -425,7 +425,7 @@ CREATE (node1:Frame {text:"allow",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"allow"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"have",type:"Verb"}),
        (node2:Frame_Argument{text:"the attacker",type:"ARG0"}),
@@ -436,7 +436,7 @@ CREATE (node1:Frame {text:"have",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"have"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"user",type:"Verb"}),
        (node2:Frame_Argument{text:"full read",type:"ARG0"}),
@@ -447,7 +447,7 @@ CREATE (node1:Frame {text:"user",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"user"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"make",type:"Verb"}),
        (node2:Frame_Argument{text:"the attacker",type:"ARG0"}),
@@ -458,7 +458,7 @@ CREATE (node1:Frame {text:"make",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"make"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"make",type:"Verb"}),
        (node2:Frame_Argument{text:"the attacker",type:"ARG0"}),
@@ -471,7 +471,7 @@ CREATE (node1:Frame {text:"make",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0017"})
 MERGE (frame:Frame {text:"make"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"controlled",type:"Verb"}),
        (node2:Frame_Argument{text:"user",type:"ARG0"}),
@@ -482,7 +482,7 @@ CREATE (node1:Frame {text:"controlled",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"controlled"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"modify",type:"Verb"}),
        (node2:Modifier_Cause{text:"Due to improper input sanitization of user - controlled input in SAP BusinessObjects Business Intelligence",type:"ARGM-CAU"}),
@@ -497,7 +497,7 @@ CREATE (node1:Frame {text:"modify",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"modify"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"containing",type:"Verb"}),
        (node2:Frame_Argument{text:"reports",type:"ARG0"}),
@@ -508,7 +508,7 @@ CREATE (node1:Frame {text:"containing",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"containing"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)       
+MERGE (description)-[:MAPPED_WITH]->(frame)       
 
 CREATE (node1:Frame {text:"are",type:"Verb"}),
        (node2:Frame_Argument{text:"these reports",type:"ARG1"}),
@@ -519,7 +519,7 @@ CREATE (node1:Frame {text:"are",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"are"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)
+MERGE (description)-[:MAPPED_WITH]->(frame)
 
 CREATE (node1:Frame {text:"opens",type:"Verb"}),
        (node2:Frame_Argument{text:"anyone",type:"ARG0"}),
@@ -532,7 +532,7 @@ CREATE (node1:Frame {text:"opens",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"opens"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"be",type:"Verb"}),
        (node2:Frame_Argument{text:"anyone who opens those reports",type:"ARG1"}),
@@ -547,7 +547,7 @@ CREATE (node1:Frame {text:"be",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"be"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)    
+MERGE (description)-[:MAPPED_WITH]->(frame)    
 
 CREATE (node1:Frame {text:"maintained",type:"Verb"}),
        (node2:Frame_Argument{text:"information",type:"ARG1"}),
@@ -558,7 +558,7 @@ CREATE (node1:Frame {text:"maintained",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"maintained"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)
+MERGE (description)-[:MAPPED_WITH]->(frame)
 
 CREATE (node1:Frame {text:"read",type:"Verb"}),
        (node2:Modifier_Cause{text:"As a result of the attack",type:"ARGM-CAU"}),
@@ -571,7 +571,7 @@ CREATE (node1:Frame {text:"read",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"read"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 
 CREATE (node1:Frame {text:"modified",type:"Verb"}),
@@ -583,7 +583,7 @@ CREATE (node1:Frame {text:"modified",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"modified"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"sent",type:"Verb"}),
        (node2:Frame_Argument{text:"information maintained in the victim 's web browser",type:"ARG1"}),
@@ -596,7 +596,7 @@ CREATE (node1:Frame {text:"sent",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0018"})
 MERGE (frame:Frame {text:"sent"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"allows",type:"Verb"}),
        (node2:Frame_Argument{text:"SAP BusinessObjects Business Intelligence Analysis edition for OLAP",type:"ARG0"}),
@@ -607,7 +607,7 @@ CREATE (node1:Frame {text:"allows",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0022"})
 MERGE (frame:Frame {text:"allows"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"inject",type:"Verb"}),
        (node2:Frame_Argument{text:"an authenticated attacker",type:"ARG0"}),
@@ -618,7 +618,7 @@ CREATE (node1:Frame {text:"inject",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0022"})
 MERGE (frame:Frame {text:"inject"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)       
+MERGE (description)-[:MAPPED_WITH]->(frame)       
 
 
 CREATE (node1:Frame {text:"executed",type:"Verb"}),
@@ -634,7 +634,7 @@ CREATE (node1:Frame {text:"executed",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0022"})
 MERGE (frame:Frame {text:"executed"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"perform",type:"Verb"}),
        (node2:Frame_Argument{text:"an attacker",type:"ARG0"}),
@@ -647,7 +647,7 @@ CREATE (node1:Frame {text:"perform",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0022"})
 MERGE (frame:Frame {text:"perform"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)      
+MERGE (description)-[:MAPPED_WITH]->(frame)      
 
 CREATE (node1:Frame {text:"compromise",type:"Verb"}),
        (node2:Frame_Argument{text:"operations",type:"ARG0"}),
@@ -664,7 +664,7 @@ CREATE (node1:Frame {text:"compromise",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0022"})
 MERGE (frame:Frame {text:"compromise"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)   
+MERGE (description)-[:MAPPED_WITH]->(frame)   
 
 CREATE (node1:Frame {text:"causing",type:"Verb"}),
        (node2:Frame_Argument{text:"the application",type:"ARG0"}),
@@ -675,7 +675,7 @@ CREATE (node1:Frame {text:"causing",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0022"})
 MERGE (frame:Frame {text:"causing"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"clicks",type:"Verb"}),
        (node2:Modifier_Temporal{text:"when",type:"ARGM-TMP"}),
@@ -688,7 +688,7 @@ CREATE (node1:Frame {text:"clicks",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0023"})
 MERGE (frame:Frame {text:"clicks"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"navigate",type:"Verb"}),
        (node2:Frame_Argument{text:"a user",type:"ARG0"}),
@@ -699,7 +699,7 @@ CREATE (node1:Frame {text:"navigate",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0023"})
 MERGE (frame:Frame {text:"navigate"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)
+MERGE (description)-[:MAPPED_WITH]->(frame)
 
 CREATE (node1:Frame {text:"shown",type:"Verb"}),
        (node2:Modifier_Location{text:"In SAP Bank Account Management ( Manage Banks ) application",type:"ARGM-LOC"}),
@@ -716,7 +716,7 @@ CREATE (node1:Frame {text:"shown",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0023"})
 MERGE (frame:Frame {text:"shown"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"get",type:"Verb"}),
        (node2:Frame_Argument{text:"They",type:"ARG1"}),
@@ -729,7 +729,7 @@ CREATE (node1:Frame {text:"get",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0023"})
 MERGE (frame:Frame {text:"get"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"captured",type:"Verb"}),
        (node2:Frame_Argument{text:"They",type:"ARG1"}),
@@ -742,7 +742,7 @@ CREATE (node1:Frame {text:"captured",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0023"})
 MERGE (frame:Frame {text:"captured"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)     
+MERGE (description)-[:MAPPED_WITH]->(frame)     
 
 CREATE (node1:Frame {text:"Stored",type:"Verb"}),
        (node2:Frame_Argument{text:")",type:"ARG0"}),
@@ -755,7 +755,7 @@ CREATE (node1:Frame {text:"Stored",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0028"})
 MERGE (frame:Frame {text:"Stored"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"found",type:"Verb"}),
        (node2:Frame_Argument{text:"A vulnerability",type:"ARG1"}),
@@ -766,7 +766,7 @@ CREATE (node1:Frame {text:"found",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0029"})
 MERGE (frame:Frame {text:"found"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"rated",type:"Verb"}),
        (node2:Frame_Argument{text:"in Multilaser RE708 RE1200R4GC-2T2R - V3_v3411b_MUL029B",type:"ARG2"}),
@@ -779,7 +779,7 @@ CREATE (node1:Frame {text:"rated",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0029"})
 MERGE (frame:Frame {text:"rated"})
-MERGE (description)-[r:MAPPED_WITH]->(frame) 
+MERGE (description)-[:MAPPED_WITH]->(frame) 
 
 CREATE (node1:Frame {text:"affects",type:"Verb"}),
        (node2:Frame_Argument{text:"This issue",type:"ARG0"}),
@@ -790,7 +790,7 @@ CREATE (node1:Frame {text:"affects",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0029"})
 MERGE (frame:Frame {text:"affects"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"leads",type:"Verb"}),
        (node2:Frame_Argument{text:"The manipulation",type:"ARG0"}),
@@ -801,7 +801,7 @@ CREATE (node1:Frame {text:"leads",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0029"})
 MERGE (frame:Frame {text:"leads"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"initiated",type:"Verb"}),
        (node2:Frame_Argument{text:"The attack",type:"ARG1"}),
@@ -814,7 +814,7 @@ CREATE (node1:Frame {text:"initiated",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0029"})
 MERGE (frame:Frame {text:"initiated"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)  
+MERGE (description)-[:MAPPED_WITH]->(frame)  
 
 CREATE (node1:Frame {text:"assigned",type:"Verb"}),
        (node2:Frame_Argument{text:"The identifier VDB-217169",type:"ARG1"}),
@@ -825,5 +825,5 @@ CREATE (node1:Frame {text:"assigned",type:"Verb"}),
 
 MERGE (description:Description {cveId:"CVE-2023-0029"})
 MERGE (frame:Frame {text:"assigned"})
-MERGE (description)-[r:MAPPED_WITH]->(frame)       
+MERGE (description)-[:MAPPED_WITH]->(frame)       
 
