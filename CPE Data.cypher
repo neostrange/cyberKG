@@ -128,7 +128,6 @@ MERGE (cpeMatch:CpeMatch {uri:"cpe:2.3:a:sap:netweaver_application_server_abap:7
 MERGE (cpe:CPE {version:"711"})
 MERGE (cpeMatch)-[:MAPPED_WITH]->(cpe)
 
-
 MERGE (cpeMatch:CpeMatch {uri:"cpe:2.3:a:sap:netweaver_application_server_abap:730:*:*:*:sap_basis:*:*:*" })
 MERGE (cpe:CPE {version:"730"})
 MERGE (cpeMatch)-[:MAPPED_WITH]->(cpe)
@@ -144,7 +143,6 @@ MERGE (cpeMatch)-[:MAPPED_WITH]->(cpe)
 MERGE (cpeMatch:CpeMatch {uri:"cpe:2.3:a:sap:netweaver_application_server_abap:750:*:*:*:sap_basis:*:*:*" })
 MERGE (cpe:CPE {version:"750"})
 MERGE (cpeMatch)-[:MAPPED_WITH]->(cpe)
-
 
 MERGE (cpeMatch:CpeMatch {uri:"cpe:2.3:a:sap:netweaver_application_server_abap:751:*:*:*:sap_basis:*:*:*" })
 MERGE (cpe:CPE {version:"751"})
@@ -178,11 +176,9 @@ MERGE (cpeMatch:CpeMatch {uri:"cpe:2.3:a:sap:netweaver_as_abap_kernel:7.89:*:*:*
 MERGE (cpe:CPE {version:"7.89"})
 MERGE (cpeMatch)-[:MAPPED_WITH]->(cpe)
 
-
 MERGE (cpeMatch:CpeMatch {uri:"cpe:2.3:a:sap:business_objects_business_intelligence_platform:420:*:*:*:*:*:*:*" })
 MERGE (cpe:CPE {version:"420"})
 MERGE (cpeMatch)-[:MAPPED_WITH]->(cpe)
-
 
 MERGE (cpeMatch:CpeMatch {uri:"cpe:2.3:a:sap:business_planning_and_consolidation:810:*:*:*:*:microsoft:*:*" })
 MERGE (cpe:CPE {version:"810"})
