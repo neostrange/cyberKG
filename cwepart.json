@@ -1,0 +1,1601 @@
+{
+    "Extended_Descriptions" :[{
+            "CWE":{ 
+                "software": "entity-fishing",
+                "version": "0.0.5",
+                "date": "2023-04-18T00:07:59.082Z",
+                "runtime": 2992,
+                "nbest": false,
+                "text": "Cross-site scripting (XSS) vulnerabilities occur when: 1. Untrusted data enters a web application, typically from a web request. 2. The web application dynamically generates a web page that contains this untrusted data. 3. During page generation, the application does not prevent the data from containing content that is executable by a web browser, such as JavaScript, HTML tags, HTML attributes, mouse events, Flash, ActiveX, etc. 4. A victim visits the generated web page through a web browser, which contains malicious script that was injected using the untrusted data. 5. Since the script comes from a web page that was sent by the web server, the victim's web browser executes the malicious script in the context of the web server's domain. 6. This effectively violates the intention of the web browser's same-origin policy, which states that scripts in one domain should not be able to access resources or run code in a different domain. There are three main kinds of XSS: Type 1: Reflected XSS (or Non-Persistent) - The server reads data directly from the HTTP request and reflects it back in the HTTP response. Reflected XSS exploits occur when an attacker causes a victim to supply dangerous content to a vulnerable web application, which is then reflected back to the victim and executed by the web browser. The most common mechanism for delivering malicious content is to include it as a parameter in a URL that is posted publicly or e-mailed directly to the victim. URLs constructed in this manner constitute the core of many phishing schemes, whereby an attacker convinces a victim to visit a URL that refers to a vulnerable site. After the site reflects the attacker's content back to the victim, the content is executed by the victim's browser. Type 2: Stored XSS (or Persistent) - The application stores dangerous data in a database, message forum, visitor log, or other trusted data store. At a later time, the dangerous data is subsequently read back into the application and included in dynamic content. From an attacker's perspective, the optimal place to inject malicious content is in an area that is displayed to either many users or particularly interesting users. Interesting users typically have elevated privileges in the application or interact with sensitive data that is valuable to the attacker. If one of these users executes malicious content, the attacker may be able to perform privileged operations on behalf of the user or gain access to sensitive data belonging to the user. For example, the attacker might inject XSS into a log message, which might not be handled properly when an administrator views the logs. Type 0: DOM-Based XSS - In DOM-based XSS, the client performs the injection of XSS into the page; in the other types, the server performs the injection. DOM-based XSS generally involves server-controlled, trusted script that is sent to the client, such as Javascript that performs sanity checks on a form before the user submits it. If the server-supplied script processes user-supplied data and then injects it back into the web page (such as with dynamic HTML), then DOM-based XSS is possible. Once the malicious script is injected, the attacker can perform a variety of malicious activities. The attacker could transfer private information, such as cookies that may include session information, from the victim's machine to the attacker. The attacker could send malicious requests to a web site on behalf of the victim, which could be especially dangerous to the site if the victim has administrator privileges to manage that site. Phishing attacks could be used to emulate trusted web sites and trick the victim into entering a password, allowing the attacker to compromise the victim's account on that web site. Finally, the script could exploit a vulnerability in the web browser itself possibly taking over the victim's machine, sometimes referred to as drive-by hacking. In many cases, the attack can be launched without the victim even being aware of it. Even with careful users, attackers frequently use a variety of methods to encode the malicious portion of the attack, such as URL encoding or Unicode, so the request looks less suspicious.",
+                "language": {
+                    "lang": "en",
+                    "conf": 1
+                },
+                "global_categories": [
+                    {
+                        "weight": 0.04878159541353045,
+                        "source": "wikipedia-en",
+                        "category": "Hacking (computer security)",
+                        "page_id": 11647669
+                    },
+                    {
+                        "weight": 0.026132997553802943,
+                        "source": "wikipedia-en",
+                        "category": "Web security exploits",
+                        "page_id": 5131853
+                    },
+                    {
+                        "weight": 0.001742199837897568,
+                        "source": "wikipedia-en",
+                        "category": "Unicode",
+                        "page_id": 720904
+                    }
+                ],
+                "entities": [
+                    {
+                        "rawName": "Cross-site scripting",
+                        "offsetStart": 0,
+                        "offsetEnd": 20,
+                        "confidence_score": 0.719,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "XSS",
+                        "offsetStart": 22,
+                        "offsetEnd": 25,
+                        "confidence_score": 0.8255,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "vulnerabilities",
+                        "offsetStart": 27,
+                        "offsetEnd": 42,
+                        "confidence_score": 0.566,
+                        "wikipediaExternalRef": 1129827,
+                        "wikidataId": "Q631425",
+                        "domains": [
+                            "Military",
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "Untrusted",
+                        "offsetStart": 58,
+                        "offsetEnd": 67,
+                        "confidence_score": 0.5761,
+                        "wikipediaExternalRef": 34973773,
+                        "wikidataId": "Q4976859",
+                        "domains": [
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "enters",
+                        "offsetStart": 73,
+                        "offsetEnd": 79,
+                        "confidence_score": 0.3761,
+                        "wikipediaExternalRef": 25162935,
+                        "wikidataId": "Q4745451",
+                        "domains": [
+                            "Military"
+                        ]
+                    },
+                    {
+                        "rawName": "web application",
+                        "offsetStart": 82,
+                        "offsetEnd": 97,
+                        "confidence_score": 0.8604,
+                        "wikipediaExternalRef": 288311,
+                        "wikidataId": "Q189210",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "web request",
+                        "offsetStart": 116,
+                        "offsetEnd": 127,
+                        "confidence_score": 0.6576,
+                        "wikipediaExternalRef": 13443,
+                        "wikidataId": "Q8777",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "2",
+                        "type": "MEASURE",
+                        "offsetStart": 129,
+                        "offsetEnd": 130,
+                        "confidence_score": 0
+                    },
+                    {
+                        "rawName": "web application",
+                        "offsetStart": 136,
+                        "offsetEnd": 151,
+                        "confidence_score": 0.8604,
+                        "wikipediaExternalRef": 288311,
+                        "wikidataId": "Q189210",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "dynamically generates",
+                        "offsetStart": 152,
+                        "offsetEnd": 173,
+                        "confidence_score": 0.4623,
+                        "wikipediaExternalRef": 2015575,
+                        "wikidataId": "Q4291515",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "web page",
+                        "offsetStart": 176,
+                        "offsetEnd": 184,
+                        "confidence_score": 0.7056,
+                        "wikipediaExternalRef": 21076839,
+                        "wikidataId": "Q36774",
+                        "domains": [
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "untrusted",
+                        "offsetStart": 204,
+                        "offsetEnd": 213,
+                        "confidence_score": 0.5761,
+                        "wikipediaExternalRef": 34973773,
+                        "wikidataId": "Q4976859",
+                        "domains": [
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "executable",
+                        "offsetStart": 321,
+                        "offsetEnd": 331,
+                        "confidence_score": 0.5397,
+                        "wikipediaExternalRef": 217392,
+                        "wikidataId": "Q778586",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "web browser",
+                        "offsetStart": 337,
+                        "offsetEnd": 348,
+                        "confidence_score": 0.8945,
+                        "wikipediaExternalRef": 33173,
+                        "wikidataId": "Q6368",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "JavaScript",
+                        "offsetStart": 358,
+                        "offsetEnd": 368,
+                        "confidence_score": 0.915,
+                        "wikipediaExternalRef": 9845,
+                        "wikidataId": "Q2005",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "HTML",
+                        "offsetStart": 370,
+                        "offsetEnd": 374,
+                        "confidence_score": 0.4357,
+                        "wikipediaExternalRef": 13191,
+                        "wikidataId": "Q8811",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "tags",
+                        "offsetStart": 375,
+                        "offsetEnd": 379,
+                        "confidence_score": 0.5171,
+                        "wikipediaExternalRef": 274393,
+                        "wikidataId": "Q179551",
+                        "domains": [
+                            "Computer_Science",
+                            "Electronics",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "HTML attributes",
+                        "offsetStart": 381,
+                        "offsetEnd": 396,
+                        "confidence_score": 0.8042,
+                        "wikipediaExternalRef": 26808274,
+                        "wikidataId": "Q5636097",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "Flash",
+                        "offsetStart": 412,
+                        "offsetEnd": 417,
+                        "confidence_score": 0.6094,
+                        "wikipediaExternalRef": 20947,
+                        "wikidataId": "Q165658",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "ActiveX",
+                        "offsetStart": 419,
+                        "offsetEnd": 426,
+                        "confidence_score": 0.8932,
+                        "wikipediaExternalRef": 93497,
+                        "wikidataId": "Q302022",
+                        "domains": [
+                            "Computer_Science",
+                            "Electronics"
+                        ]
+                    },
+                    {
+                        "rawName": "web page",
+                        "offsetStart": 466,
+                        "offsetEnd": 474,
+                        "confidence_score": 0.7056,
+                        "wikipediaExternalRef": 21076839,
+                        "wikidataId": "Q36774",
+                        "domains": [
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "web browser",
+                        "offsetStart": 485,
+                        "offsetEnd": 496,
+                        "confidence_score": 0.8945,
+                        "wikipediaExternalRef": 33173,
+                        "wikidataId": "Q6368",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "malicious",
+                        "offsetStart": 513,
+                        "offsetEnd": 522,
+                        "confidence_score": 0.5011,
+                        "wikipediaExternalRef": 20901,
+                        "wikidataId": "Q14001",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "injected",
+                        "offsetStart": 539,
+                        "offsetEnd": 547,
+                        "confidence_score": 0.5029,
+                        "wikipediaExternalRef": 1065470,
+                        "wikidataId": "Q2920753",
+                        "domains": [
+                            "Engineering"
+                        ]
+                    },
+                    {
+                        "rawName": "untrusted",
+                        "offsetStart": 558,
+                        "offsetEnd": 567,
+                        "confidence_score": 0.5761,
+                        "wikipediaExternalRef": 34973773,
+                        "wikidataId": "Q4976859",
+                        "domains": [
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "web page",
+                        "offsetStart": 607,
+                        "offsetEnd": 615,
+                        "confidence_score": 0.7056,
+                        "wikipediaExternalRef": 21076839,
+                        "wikidataId": "Q36774",
+                        "domains": [
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "web server",
+                        "offsetStart": 637,
+                        "offsetEnd": 647,
+                        "confidence_score": 0.8665,
+                        "wikipediaExternalRef": 33455,
+                        "wikidataId": "Q11288",
+                        "domains": [
+                            "Computer_Science",
+                            "Electronics",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "web browser",
+                        "offsetStart": 662,
+                        "offsetEnd": 673,
+                        "confidence_score": 0.8945,
+                        "wikipediaExternalRef": 33173,
+                        "wikidataId": "Q6368",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "executes",
+                        "offsetStart": 674,
+                        "offsetEnd": 682,
+                        "confidence_score": 0.503,
+                        "wikipediaExternalRef": 418206,
+                        "wikidataId": "Q1077724",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "malicious",
+                        "offsetStart": 687,
+                        "offsetEnd": 696,
+                        "confidence_score": 0.5011,
+                        "wikipediaExternalRef": 20901,
+                        "wikidataId": "Q14001",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "web server",
+                        "offsetStart": 726,
+                        "offsetEnd": 736,
+                        "confidence_score": 0.8665,
+                        "wikipediaExternalRef": 33455,
+                        "wikidataId": "Q11288",
+                        "domains": [
+                            "Computer_Science",
+                            "Electronics",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "violates",
+                        "offsetStart": 767,
+                        "offsetEnd": 775,
+                        "confidence_score": 0.385,
+                        "wikipediaExternalRef": 1240666,
+                        "wikidataId": "Q141160",
+                        "domains": [
+                            "Geometry",
+                            "Physics"
+                        ]
+                    },
+                    {
+                        "rawName": "web browser's",
+                        "offsetStart": 797,
+                        "offsetEnd": 810,
+                        "confidence_score": 0.6034,
+                        "wikipediaExternalRef": 33173,
+                        "wikidataId": "Q6368",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "same-origin policy",
+                        "offsetStart": 811,
+                        "offsetEnd": 829,
+                        "confidence_score": 0.8835,
+                        "wikipediaExternalRef": 1883276,
+                        "wikidataId": "Q2031810",
+                        "domains": [
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "scripts",
+                        "offsetStart": 849,
+                        "offsetEnd": 856,
+                        "confidence_score": 0.5074,
+                        "wikipediaExternalRef": 21490336,
+                        "wikidataId": "Q187432",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "XSS",
+                        "offsetStart": 975,
+                        "offsetEnd": 978,
+                        "confidence_score": 0.8255,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "Type 1",
+                        "offsetStart": 980,
+                        "offsetEnd": 986,
+                        "confidence_score": 0.5056,
+                        "wikipediaExternalRef": 41829,
+                        "wikidataId": "Q7860676",
+                        "domains": [
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "Reflected XSS",
+                        "offsetStart": 988,
+                        "offsetEnd": 1001,
+                        "confidence_score": 0.5158,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "Persistent",
+                        "offsetStart": 1010,
+                        "offsetEnd": 1020,
+                        "confidence_score": 0.3757,
+                        "wikipediaExternalRef": 8669240,
+                        "wikidataId": "Q7872822",
+                        "domains": [
+                            "Nautical",
+                            "Transport",
+                            "Vehicles"
+                        ]
+                    },
+                    {
+                        "rawName": "HTTP request",
+                        "offsetStart": 1064,
+                        "offsetEnd": 1076,
+                        "confidence_score": 0.8153,
+                        "wikipediaExternalRef": 13443,
+                        "wikidataId": "Q8777",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "HTTP response",
+                        "offsetStart": 1105,
+                        "offsetEnd": 1118,
+                        "confidence_score": 0.5927,
+                        "wikipediaExternalRef": 13443,
+                        "wikidataId": "Q8777",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "Reflected XSS",
+                        "offsetStart": 1120,
+                        "offsetEnd": 1133,
+                        "confidence_score": 0.5158,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "exploits",
+                        "offsetStart": 1134,
+                        "offsetEnd": 1142,
+                        "confidence_score": 0.5021,
+                        "wikipediaExternalRef": 9875,
+                        "wikidataId": "Q11287",
+                        "domains": [
+                            "Engineering"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 1157,
+                        "offsetEnd": 1165,
+                        "confidence_score": 0.5111,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "web application",
+                        "offsetStart": 1226,
+                        "offsetEnd": 1241,
+                        "confidence_score": 0.8604,
+                        "wikipediaExternalRef": 288311,
+                        "wikidataId": "Q189210",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "web browser",
+                        "offsetStart": 1306,
+                        "offsetEnd": 1317,
+                        "confidence_score": 0.8945,
+                        "wikipediaExternalRef": 33173,
+                        "wikidataId": "Q6368",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "malicious",
+                        "offsetStart": 1360,
+                        "offsetEnd": 1369,
+                        "confidence_score": 0.5011,
+                        "wikipediaExternalRef": 20901,
+                        "wikidataId": "Q14001",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "parameter",
+                        "offsetStart": 1400,
+                        "offsetEnd": 1409,
+                        "confidence_score": 0.5668,
+                        "wikipediaExternalRef": 324375,
+                        "wikidataId": "Q1410440",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "URL",
+                        "offsetStart": 1415,
+                        "offsetEnd": 1418,
+                        "confidence_score": 0.8269,
+                        "wikipediaExternalRef": 47817022,
+                        "wikidataId": "Q42253",
+                        "domains": [
+                            "Electronics",
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "e-mailed",
+                        "offsetStart": 1446,
+                        "offsetEnd": 1454,
+                        "confidence_score": 0.5702,
+                        "wikipediaExternalRef": 9738,
+                        "wikidataId": "Q9158",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "URLs",
+                        "offsetStart": 1479,
+                        "offsetEnd": 1483,
+                        "confidence_score": 0.6707,
+                        "wikipediaExternalRef": 47817022,
+                        "wikidataId": "Q42253",
+                        "domains": [
+                            "Electronics",
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "phishing",
+                        "offsetStart": 1539,
+                        "offsetEnd": 1547,
+                        "confidence_score": 0.9026,
+                        "wikipediaExternalRef": 428364,
+                        "wikidataId": "Q135005",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 1568,
+                        "offsetEnd": 1576,
+                        "confidence_score": 0.5111,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "URL",
+                        "offsetStart": 1607,
+                        "offsetEnd": 1610,
+                        "confidence_score": 0.8269,
+                        "wikipediaExternalRef": 47817022,
+                        "wikidataId": "Q42253",
+                        "domains": [
+                            "Electronics",
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 1673,
+                        "offsetEnd": 1681,
+                        "confidence_score": 0.5111,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "browser",
+                        "offsetStart": 1752,
+                        "offsetEnd": 1759,
+                        "confidence_score": 0.6292,
+                        "wikipediaExternalRef": 33173,
+                        "wikidataId": "Q6368",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "Type 2",
+                        "offsetStart": 1761,
+                        "offsetEnd": 1767,
+                        "confidence_score": 0.5069,
+                        "wikipediaExternalRef": 43050210,
+                        "wikidataId": "Q2335519",
+                        "domains": [
+                            "Electronics",
+                            "Electricity"
+                        ]
+                    },
+                    {
+                        "rawName": "Stored XSS",
+                        "offsetStart": 1769,
+                        "offsetEnd": 1779,
+                        "confidence_score": 0.5158,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "Persistent",
+                        "offsetStart": 1784,
+                        "offsetEnd": 1794,
+                        "confidence_score": 0.3757,
+                        "wikipediaExternalRef": 8669240,
+                        "wikidataId": "Q7872822",
+                        "domains": [
+                            "Nautical",
+                            "Transport",
+                            "Vehicles"
+                        ]
+                    },
+                    {
+                        "rawName": "visitor",
+                        "offsetStart": 1866,
+                        "offsetEnd": 1873,
+                        "confidence_score": 0.3888,
+                        "wikipediaExternalRef": 362474,
+                        "wikidataId": "Q12644761",
+                        "domains": [
+                            "Military",
+                            "Sociology"
+                        ]
+                    },
+                    {
+                        "rawName": "data store",
+                        "offsetStart": 1896,
+                        "offsetEnd": 1906,
+                        "confidence_score": 0.5191,
+                        "wikipediaExternalRef": 21306150,
+                        "wikidataId": "Q5295",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Electrotechnology"
+                        ]
+                    },
+                    {
+                        "rawName": "dynamic content",
+                        "offsetStart": 2007,
+                        "offsetEnd": 2022,
+                        "confidence_score": 0.6309,
+                        "wikipediaExternalRef": 1697881,
+                        "wikidataId": "Q1650567",
+                        "domains": [
+                            "Computer_Science",
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 2032,
+                        "offsetEnd": 2040,
+                        "confidence_score": 0.3863,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "optimal",
+                        "offsetStart": 2060,
+                        "offsetEnd": 2067,
+                        "confidence_score": 0.3912,
+                        "wikipediaExternalRef": 52033,
+                        "wikidataId": "Q141495",
+                        "domains": [
+                            "Engineering",
+                            "Economy",
+                            "Commerce",
+                            "Enterprise"
+                        ]
+                    },
+                    {
+                        "rawName": "inject",
+                        "offsetStart": 2077,
+                        "offsetEnd": 2083,
+                        "confidence_score": 0.3694,
+                        "wikipediaExternalRef": 1065470,
+                        "wikidataId": "Q2920753",
+                        "domains": [
+                            "Engineering"
+                        ]
+                    },
+                    {
+                        "rawName": "malicious",
+                        "offsetStart": 2084,
+                        "offsetEnd": 2093,
+                        "confidence_score": 0.3915,
+                        "wikipediaExternalRef": 20901,
+                        "wikidataId": "Q14001",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "Interesting",
+                        "offsetStart": 2190,
+                        "offsetEnd": 2201,
+                        "confidence_score": 0.3849,
+                        "wikipediaExternalRef": 181274,
+                        "wikidataId": "Q49022",
+                        "domains": [
+                            "Biology",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "privileges",
+                        "offsetStart": 2232,
+                        "offsetEnd": 2242,
+                        "confidence_score": 0.3962,
+                        "wikipediaExternalRef": 829338,
+                        "wikidataId": "Q273395",
+                        "domains": [
+                            "Commerce",
+                            "Enterprise"
+                        ]
+                    },
+                    {
+                        "rawName": "sensitive data",
+                        "offsetStart": 2279,
+                        "offsetEnd": 2293,
+                        "confidence_score": 0.4691,
+                        "wikipediaExternalRef": 5316476,
+                        "wikidataId": "Q2587068",
+                        "domains": [
+                            "Administration"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 2318,
+                        "offsetEnd": 2326,
+                        "confidence_score": 0.3863,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "executes",
+                        "offsetStart": 2350,
+                        "offsetEnd": 2358,
+                        "confidence_score": 0.3879,
+                        "wikipediaExternalRef": 418206,
+                        "wikidataId": "Q1077724",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "malicious",
+                        "offsetStart": 2359,
+                        "offsetEnd": 2368,
+                        "confidence_score": 0.3915,
+                        "wikipediaExternalRef": 20901,
+                        "wikidataId": "Q14001",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 2382,
+                        "offsetEnd": 2390,
+                        "confidence_score": 0.3863,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "privileged",
+                        "offsetStart": 2414,
+                        "offsetEnd": 2424,
+                        "confidence_score": 0.3759,
+                        "wikipediaExternalRef": 1655005,
+                        "wikidataId": "Q17016489",
+                        "domains": [
+                            "Sociology"
+                        ]
+                    },
+                    {
+                        "rawName": "gain access",
+                        "offsetStart": 2461,
+                        "offsetEnd": 2472,
+                        "confidence_score": 0.4356,
+                        "wikipediaExternalRef": 41685404,
+                        "wikidataId": "Q15975538",
+                        "domains": [
+                            "Electronics"
+                        ]
+                    },
+                    {
+                        "rawName": "sensitive data",
+                        "offsetStart": 2476,
+                        "offsetEnd": 2490,
+                        "confidence_score": 0.4691,
+                        "wikipediaExternalRef": 5316476,
+                        "wikidataId": "Q2587068",
+                        "domains": [
+                            "Administration"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 2531,
+                        "offsetEnd": 2539,
+                        "confidence_score": 0.3863,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "inject",
+                        "offsetStart": 2546,
+                        "offsetEnd": 2552,
+                        "confidence_score": 0.3694,
+                        "wikipediaExternalRef": 1065470,
+                        "wikidataId": "Q2920753",
+                        "domains": [
+                            "Engineering"
+                        ]
+                    },
+                    {
+                        "rawName": "XSS",
+                        "offsetStart": 2553,
+                        "offsetEnd": 2556,
+                        "confidence_score": 0.7083,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "log message",
+                        "offsetStart": 2564,
+                        "offsetEnd": 2575,
+                        "confidence_score": 0.6499,
+                        "wikipediaExternalRef": 988114,
+                        "wikidataId": "Q1172468",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Mechanics"
+                        ]
+                    },
+                    {
+                        "rawName": "logs",
+                        "offsetStart": 2645,
+                        "offsetEnd": 2649,
+                        "confidence_score": 0.5108,
+                        "wikipediaExternalRef": 10999508,
+                        "wikidataId": "Q949532",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "Type 0",
+                        "offsetStart": 2651,
+                        "offsetEnd": 2657,
+                        "confidence_score": 0.5047,
+                        "wikipediaExternalRef": 5069239,
+                        "wikidataId": "Q1774415",
+                        "domains": [
+                            "Military",
+                            "Electronics",
+                            "Computer_Science",
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "DOM",
+                        "offsetStart": 2659,
+                        "offsetEnd": 2662,
+                        "confidence_score": 0.8306,
+                        "wikipediaExternalRef": 8743,
+                        "wikidataId": "Q2093",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "Based",
+                        "offsetStart": 2663,
+                        "offsetEnd": 2668,
+                        "confidence_score": 0.3784,
+                        "wikipediaExternalRef": 1851712,
+                        "wikidataId": "Q1257444",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "XSS",
+                        "offsetStart": 2669,
+                        "offsetEnd": 2672,
+                        "confidence_score": 0.8255,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "DOM",
+                        "offsetStart": 2678,
+                        "offsetEnd": 2681,
+                        "confidence_score": 0.8306,
+                        "wikipediaExternalRef": 8743,
+                        "wikidataId": "Q2093",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "XSS",
+                        "offsetStart": 2688,
+                        "offsetEnd": 2691,
+                        "confidence_score": 0.8255,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "performs",
+                        "offsetStart": 2704,
+                        "offsetEnd": 2712,
+                        "confidence_score": 0.3597,
+                        "wikipediaExternalRef": 236424,
+                        "wikidataId": "Q823571",
+                        "domains": [
+                            "Biology",
+                            "Psychiatry",
+                            "Health",
+                            "Sociology",
+                            "Commerce",
+                            "Enterprise",
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "injection",
+                        "offsetStart": 2717,
+                        "offsetEnd": 2726,
+                        "confidence_score": 0.3989,
+                        "wikipediaExternalRef": 665909,
+                        "wikidataId": "Q245359",
+                        "domains": [
+                            "Pharmacy"
+                        ]
+                    },
+                    {
+                        "rawName": "XSS",
+                        "offsetStart": 2730,
+                        "offsetEnd": 2733,
+                        "confidence_score": 0.8255,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "performs",
+                        "offsetStart": 2780,
+                        "offsetEnd": 2788,
+                        "confidence_score": 0.3597,
+                        "wikipediaExternalRef": 236424,
+                        "wikidataId": "Q823571",
+                        "domains": [
+                            "Biology",
+                            "Psychiatry",
+                            "Health",
+                            "Sociology",
+                            "Commerce",
+                            "Enterprise",
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "injection",
+                        "offsetStart": 2793,
+                        "offsetEnd": 2802,
+                        "confidence_score": 0.3989,
+                        "wikipediaExternalRef": 665909,
+                        "wikidataId": "Q245359",
+                        "domains": [
+                            "Pharmacy"
+                        ]
+                    },
+                    {
+                        "rawName": "DOM",
+                        "offsetStart": 2804,
+                        "offsetEnd": 2807,
+                        "confidence_score": 0.8306,
+                        "wikipediaExternalRef": 8743,
+                        "wikidataId": "Q2093",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "XSS",
+                        "offsetStart": 2814,
+                        "offsetEnd": 2817,
+                        "confidence_score": 0.8255,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "Javascript",
+                        "offsetStart": 2907,
+                        "offsetEnd": 2917,
+                        "confidence_score": 0.6657,
+                        "wikipediaExternalRef": 9845,
+                        "wikidataId": "Q2005",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "performs",
+                        "offsetStart": 2923,
+                        "offsetEnd": 2931,
+                        "confidence_score": 0.3597,
+                        "wikipediaExternalRef": 236424,
+                        "wikidataId": "Q823571",
+                        "domains": [
+                            "Biology",
+                            "Psychiatry",
+                            "Health",
+                            "Sociology",
+                            "Commerce",
+                            "Enterprise",
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "sanity",
+                        "offsetStart": 2932,
+                        "offsetEnd": 2938,
+                        "confidence_score": 0.4019,
+                        "wikipediaExternalRef": 27491,
+                        "wikidataId": "Q2915214",
+                        "domains": [
+                            "Health"
+                        ]
+                    },
+                    {
+                        "rawName": "submits",
+                        "offsetStart": 2972,
+                        "offsetEnd": 2979,
+                        "confidence_score": 0.3836,
+                        "wikipediaExternalRef": 31080540,
+                        "wikidataId": "Q13218126",
+                        "domains": [
+                            "Biology"
+                        ]
+                    },
+                    {
+                        "rawName": "injects",
+                        "offsetStart": 3052,
+                        "offsetEnd": 3059,
+                        "confidence_score": 0.3836,
+                        "wikipediaExternalRef": 12846637,
+                        "wikidataId": "Q6034284",
+                        "domains": [
+                            "Administration",
+                            "Finance"
+                        ]
+                    },
+                    {
+                        "rawName": "web page",
+                        "offsetStart": 3077,
+                        "offsetEnd": 3085,
+                        "confidence_score": 0.7056,
+                        "wikipediaExternalRef": 21076839,
+                        "wikidataId": "Q36774",
+                        "domains": [
+                            "Artisanship"
+                        ]
+                    },
+                    {
+                        "rawName": "dynamic HTML",
+                        "offsetStart": 3100,
+                        "offsetEnd": 3112,
+                        "confidence_score": 0.9095,
+                        "wikipediaExternalRef": 8996,
+                        "wikidataId": "Q380153",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "DOM",
+                        "offsetStart": 3120,
+                        "offsetEnd": 3123,
+                        "confidence_score": 0.8306,
+                        "wikipediaExternalRef": 8743,
+                        "wikidataId": "Q2093",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "XSS",
+                        "offsetStart": 3130,
+                        "offsetEnd": 3133,
+                        "confidence_score": 0.8255,
+                        "wikipediaExternalRef": 241154,
+                        "wikidataId": "Q371199",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "malicious",
+                        "offsetStart": 3156,
+                        "offsetEnd": 3165,
+                        "confidence_score": 0.5011,
+                        "wikipediaExternalRef": 20901,
+                        "wikidataId": "Q14001",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "injected",
+                        "offsetStart": 3176,
+                        "offsetEnd": 3184,
+                        "confidence_score": 0.5029,
+                        "wikipediaExternalRef": 1065470,
+                        "wikidataId": "Q2920753",
+                        "domains": [
+                            "Engineering"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 3190,
+                        "offsetEnd": 3198,
+                        "confidence_score": 0.5111,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "malicious",
+                        "offsetStart": 3224,
+                        "offsetEnd": 3233,
+                        "confidence_score": 0.5011,
+                        "wikipediaExternalRef": 20901,
+                        "wikidataId": "Q14001",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 3250,
+                        "offsetEnd": 3258,
+                        "confidence_score": 0.5111,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "private information",
+                        "offsetStart": 3274,
+                        "offsetEnd": 3293,
+                        "confidence_score": 0.5091,
+                        "wikipediaExternalRef": 1845896,
+                        "wikidataId": "Q3702971",
+                        "domains": [
+                            "Sociology"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 3382,
+                        "offsetEnd": 3390,
+                        "confidence_score": 0.5111,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 3396,
+                        "offsetEnd": 3404,
+                        "confidence_score": 0.5111,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "malicious",
+                        "offsetStart": 3416,
+                        "offsetEnd": 3425,
+                        "confidence_score": 0.5011,
+                        "wikipediaExternalRef": 20901,
+                        "wikidataId": "Q14001",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "web site",
+                        "offsetStart": 3440,
+                        "offsetEnd": 3448,
+                        "confidence_score": 0.5084,
+                        "wikipediaExternalRef": 33898,
+                        "wikidataId": "Q35127",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "administrator privileges",
+                        "offsetStart": 3540,
+                        "offsetEnd": 3564,
+                        "confidence_score": 0.6614,
+                        "wikipediaExternalRef": 264209,
+                        "wikidataId": "Q255063",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "Phishing attacks",
+                        "offsetStart": 3586,
+                        "offsetEnd": 3602,
+                        "confidence_score": 0.4603,
+                        "wikipediaExternalRef": 428364,
+                        "wikidataId": "Q135005",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "emulate",
+                        "offsetStart": 3620,
+                        "offsetEnd": 3627,
+                        "confidence_score": 0.3942,
+                        "wikipediaExternalRef": 18943937,
+                        "wikidataId": "Q202871",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Electrotechnology",
+                            "Enterprise",
+                            "Engineering"
+                        ]
+                    },
+                    {
+                        "rawName": "web sites",
+                        "offsetStart": 3636,
+                        "offsetEnd": 3645,
+                        "confidence_score": 0.513,
+                        "wikipediaExternalRef": 2292485,
+                        "wikidataId": "Q2737701",
+                        "domains": [
+                            "Sociology",
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "attacker",
+                        "offsetStart": 3706,
+                        "offsetEnd": 3714,
+                        "confidence_score": 0.5111,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "web site",
+                        "offsetStart": 3758,
+                        "offsetEnd": 3766,
+                        "confidence_score": 0.5084,
+                        "wikipediaExternalRef": 33898,
+                        "wikidataId": "Q35127",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "Finally",
+                        "offsetStart": 3768,
+                        "offsetEnd": 3775,
+                        "confidence_score": 0.3703,
+                        "wikipediaExternalRef": 3298283,
+                        "wikidataId": "Q5449492",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Acoustics"
+                        ]
+                    },
+                    {
+                        "rawName": "exploit",
+                        "offsetStart": 3794,
+                        "offsetEnd": 3801,
+                        "confidence_score": 0.5059,
+                        "wikipediaExternalRef": 9875,
+                        "wikidataId": "Q11287",
+                        "domains": [
+                            "Engineering"
+                        ]
+                    },
+                    {
+                        "rawName": "vulnerability",
+                        "offsetStart": 3804,
+                        "offsetEnd": 3817,
+                        "confidence_score": 0.5174,
+                        "wikipediaExternalRef": 1129827,
+                        "wikidataId": "Q631425",
+                        "domains": [
+                            "Military",
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "web browser",
+                        "offsetStart": 3825,
+                        "offsetEnd": 3836,
+                        "confidence_score": 0.8945,
+                        "wikipediaExternalRef": 33173,
+                        "wikidataId": "Q6368",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "drive-by",
+                        "offsetStart": 3912,
+                        "offsetEnd": 3920,
+                        "confidence_score": 0.5123,
+                        "wikipediaExternalRef": 2008939,
+                        "wikidataId": "Q1259344",
+                        "domains": [
+                            "Engineering"
+                        ]
+                    },
+                    {
+                        "rawName": "hacking",
+                        "offsetStart": 3921,
+                        "offsetEnd": 3928,
+                        "confidence_score": 0.6085,
+                        "wikipediaExternalRef": 163526,
+                        "wikidataId": "Q3083944",
+                        "domains": [
+                            "Artisanship",
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "attackers",
+                        "offsetStart": 4040,
+                        "offsetEnd": 4049,
+                        "confidence_score": 0.4982,
+                        "wikipediaExternalRef": 2471540,
+                        "wikidataId": "Q2798820",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "variety of methods",
+                        "offsetStart": 4067,
+                        "offsetEnd": 4085,
+                        "confidence_score": 0.3731,
+                        "wikipediaExternalRef": 23924955,
+                        "wikidataId": "Q413567",
+                        "domains": [
+                            "Chemistry"
+                        ]
+                    },
+                    {
+                        "rawName": "encode",
+                        "offsetStart": 4089,
+                        "offsetEnd": 4095,
+                        "confidence_score": 0.5087,
+                        "wikipediaExternalRef": 5295,
+                        "wikidataId": "Q184759",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "malicious",
+                        "offsetStart": 4100,
+                        "offsetEnd": 4109,
+                        "confidence_score": 0.5011,
+                        "wikipediaExternalRef": 20901,
+                        "wikidataId": "Q14001",
+                        "domains": [
+                            "Computer_Science"
+                        ]
+                    },
+                    {
+                        "rawName": "URL encoding",
+                        "offsetStart": 4141,
+                        "offsetEnd": 4153,
+                        "confidence_score": 0.8586,
+                        "wikipediaExternalRef": 1829286,
+                        "wikidataId": "Q1046948",
+                        "domains": [
+                            "Computer_Science",
+                            "Telecommunication"
+                        ]
+                    },
+                    {
+                        "rawName": "Unicode",
+                        "offsetStart": 4157,
+                        "offsetEnd": 4164,
+                        "confidence_score": 0.9028,
+                        "wikipediaExternalRef": 31742,
+                        "wikidataId": "Q8819",
+                        "domains": [
+                            "Electronics",
+                            "Computer_Science"
+                        ]
+                    }
+                ]
+            }  
+        }  
+    ]
+}
+
+			
+		
+	
+
