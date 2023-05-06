@@ -12,26 +12,6 @@
                "lang":"en",
                "conf":1
             },
-            "global_categories":[
-               {
-                  "weight":0.04878159541353045,
-                  "source":"wikipedia-en",
-                  "category":"Hacking (computer security)",
-                  "page_id":11647669
-               },
-               {
-                  "weight":0.026132997553802943,
-                  "source":"wikipedia-en",
-                  "category":"Web security exploits",
-                  "page_id":5131853
-               },
-               {
-                  "weight":0.001742199837897568,
-                  "source":"wikipedia-en",
-                  "category":"Unicode",
-                  "page_id":720904
-               }
-            ],
             "entities":[
                {
                   "rawName":"Cross-site scripting",
@@ -1605,26 +1585,6 @@
                "lang":"en",
                "conf":1
             },
-            "global_categories":[
-               {
-                  "weight":0.019997397708562056,
-                  "source":"wikipedia-en",
-                  "category":"Data-centric programming languages",
-                  "page_id":925067
-               },
-               {
-                  "weight":0.009998698833835067,
-                  "source":"wikipedia-en",
-                  "category":"1984 in comics",
-                  "page_id":17718412
-               },
-               {
-                  "weight":0.009998698833835067,
-                  "source":"wikipedia-en",
-                  "category":"Command and control",
-                  "page_id":13460558
-               }
-            ],
             "entities":[
                {
                   "rawName":"quoting",
@@ -1941,32 +1901,6 @@
                "lang":"en",
                "conf":1
             },
-            "global_categories":[
-               {
-                  "weight":0.0901926432383948,
-                  "source":"wikipedia-en",
-                  "category":"Computer security exploits",
-                  "page_id":22272764
-               },
-               {
-                  "weight":0.06764448218898413,
-                  "source":"wikipedia-en",
-                  "category":"Hacking (computer security)",
-                  "page_id":11647669
-               },
-               {
-                  "weight":0.022548160729661378,
-                  "source":"wikipedia-en",
-                  "category":"Programming language topics",
-                  "page_id":5699671
-               },
-               {
-                  "weight":0.022548160729661378,
-                  "source":"wikipedia-en",
-                  "category":"Illegal occupations",
-                  "page_id":1005451
-               }
-            ],
             "entities":[
                {
                   "rawName":"syntax",
@@ -2256,26 +2190,6 @@
                "lang":"en",
                "conf":1
             },
-            "global_categories":[
-               {
-                  "weight":0.009935460988123061,
-                  "source":"wikipedia-en",
-                  "category":"Medical manuals",
-                  "page_id":724491
-               },
-               {
-                  "weight":0.009935460988123061,
-                  "source":"wikipedia-en",
-                  "category":"Construction",
-                  "page_id":755979
-               },
-               {
-                  "weight":0.009935460988123061,
-                  "source":"wikipedia-en",
-                  "category":"File sharing",
-                  "page_id":802056
-               }
-            ],
             "entities":[
                {
                   "rawName":"exposures",
@@ -2707,26 +2621,6 @@
                "lang":"en",
                "conf":1
             },
-            "global_categories":[
-               {
-                  "weight":0.02177728820880549,
-                  "source":"wikipedia-en",
-                  "category":"Perimeter security",
-                  "page_id":29568962
-               },
-               {
-                  "weight":0.018774733450646813,
-                  "source":"wikipedia-en",
-                  "category":"Command and control",
-                  "page_id":13460558
-               },
-               {
-                  "weight":0.0054037453131323635,
-                  "source":"wikipedia-en",
-                  "category":"Software architecture",
-                  "page_id":1805593
-               }
-            ],
             "entities":[
                {
                   "rawName":"Access control",
@@ -3051,44 +2945,6 @@
                "lang":"en",
                "conf":1
             },
-            "global_categories":[
-               {
-                  "weight":0.09559506604831125,
-                  "source":"wikipedia-en",
-                  "category":"User interfaces",
-                  "page_id":30875525
-               },
-               {
-                  "weight":0.09559506604831125,
-                  "source":"wikipedia-en",
-                  "category":"Computing commands",
-                  "page_id":28119161
-               },
-               {
-                  "weight":0.09559506604831125,
-                  "source":"wikipedia-en",
-                  "category":"Computing terminology",
-                  "page_id":2458835
-               },
-               {
-                  "weight":0.047797533024155625,
-                  "source":"wikipedia-en",
-                  "category":"Television shows set in California",
-                  "page_id":5636468
-               },
-               {
-                  "weight":0.047797533024155625,
-                  "source":"wikipedia-en",
-                  "category":"2013 American television series endings",
-                  "page_id":37840227
-               },
-               {
-                  "weight":0.047797533024155625,
-                  "source":"wikipedia-en",
-                  "category":"2010s American reality television series",
-                  "page_id":54647202
-               }
-            ],
             "entities":[
                {
                   "rawName":"Capture",
