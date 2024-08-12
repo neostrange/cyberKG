@@ -1,0 +1,830 @@
+{
+    "CWE_Items" :[{
+        "CWE":{ 
+            "cwe_id": "79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')", 
+            "weakness_abstraction": "Base", 
+            "status": "Stable",
+            "description": "The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.", 
+            "extended_description": "Cross-site scripting (XSS) vulnerabilities occur when: 1. Untrusted data enters a web application, typically from a web request. 2. The web application dynamically generates a web page that contains this untrusted data. 3. During page generation, the application does not prevent the data from containing content that is executable by a web browser, such as JavaScript, HTML tags, HTML attributes, mouse events, Flash, ActiveX, etc. 4. A victim visits the generated web page through a web browser, which contains malicious script that was injected using the untrusted data. 5. Since the script comes from a web page that was sent by the web server, the victim's web browser executes the malicious script in the context of the web server's domain. 6. This effectively violates the intention of the web browser's same-origin policy, which states that scripts in one domain should not be able to access resources or run code in a different domain. There are three main kinds of XSS: Type 1: Reflected XSS (or Non-Persistent) - The server reads data directly from the HTTP request and reflects it back in the HTTP response. Reflected XSS exploits occur when an attacker causes a victim to supply dangerous content to a vulnerable web application, which is then reflected back to the victim and executed by the web browser. The most common mechanism for delivering malicious content is to include it as a parameter in a URL that is posted publicly or e-mailed directly to the victim. URLs constructed in this manner constitute the core of many phishing schemes, whereby an attacker convinces a victim to visit a URL that refers to a vulnerable site. After the site reflects the attacker's content back to the victim, the content is executed by the victim's browser. Type 2: Stored XSS (or Persistent) - The application stores dangerous data in a database, message forum, visitor log, or other trusted data store. At a later time, the dangerous data is subsequently read back into the application and included in dynamic content. From an attacker's perspective, the optimal place to inject malicious content is in an area that is displayed to either many users or particularly interesting users. Interesting users typically have elevated privileges in the application or interact with sensitive data that is valuable to the attacker. If one of these users executes malicious content, the attacker may be able to perform privileged operations on behalf of the user or gain access to sensitive data belonging to the user. For example, the attacker might inject XSS into a log message, which might not be handled properly when an administrator views the logs. Type 0: DOM-Based XSS - In DOM-based XSS, the client performs the injection of XSS into the page; in the other types, the server performs the injection. DOM-based XSS generally involves server-controlled, trusted script that is sent to the client, such as Javascript that performs sanity checks on a form before the user submits it. If the server-supplied script processes user-supplied data and then injects it back into the web page (such as with dynamic HTML), then DOM-based XSS is possible. Once the malicious script is injected, the attacker can perform a variety of malicious activities. The attacker could transfer private information, such as cookies that may include session information, from the victim's machine to the attacker. The attacker could send malicious requests to a web site on behalf of the victim, which could be especially dangerous to the site if the victim has administrator privileges to manage that site. Phishing attacks could be used to emulate trusted web sites and trick the victim into entering a password, allowing the attacker to compromise the victim's account on that web site. Finally, the script could exploit a vulnerability in the web browser itself possibly taking over the victim's machine, sometimes referred to as drive-by hacking. In many cases, the attack can be launched without the victim even being aware of it. Even with careful users, attackers frequently use a variety of methods to encode the malicious portion of the attack, such as URL encoding or Unicode, so the request looks less suspicious.",
+            "related_weaknesses": { 
+                "related_weakness":[{
+                    "NATURE":"ChildOf",
+                    "CWE ID":"74",
+                    "VIEW ID":"1000",
+                    "ORDINAL":"Primary"
+                },{
+                    "NATURE":"ChildOf",
+                    "CWE ID":"74",
+                    "VIEW ID":"1003",
+                    "ORDINAL":"Primary"
+                },{
+                    "NATURE ":"CanPrecede",
+                    "CWE ID":"494",
+                    "VIEW ID":"1000",
+                    "ORDINAL":""
+                },{
+                    "NATURE":"PeerOf",
+                    "CWE ID":"352",
+                    "VIEW ID":"1000",
+                    "ORDINAL":""
+            }]},
+            "weakness_ordinalities": {
+                "weakness_ordinality": {
+                    "ORDINALITY":"Resultant",
+                    "DESCRIPTION":""
+            }},
+            "applicable_platforms": {
+                "applicable_platform": {
+                    "Language": {
+                        "Class": "Language-Independent",
+                        "Prevalence": "Undetermined"
+                    },
+                    "Technology": {
+                        "Class": "Web Based",
+                        "Prevalence": "Often"
+            }}},
+            "background_details": {
+                "background_detail": "Same Origin Policy The same origin policy states that browsers should limit the resources accessible to scripts running on a given web site, or origin, to the resources associated with that web site on the client-side, and not the client-side resources of any other sites or origins. The goal is to prevent one site from being able to modify or read the contents of an unrelated site. Since the World Wide Web involves interactions between many sites, this policy is important for browsers to enforce. Domain The Domain of a website when referring to XSS is roughly equivalent to the resources associated with that website on the client-side of the connection. That is, the domain can be thought of as all resources the browser is storing for the user's interactions with this particular site."	
+            },
+            "alternate_terms":{
+                "alternate_term": [{
+                    "TERM":"XSS",
+                    "DESCRIPTION":"XSS is a common abbreviation for Cross-Site Scripting."
+                },{
+                    "TERM":"HTML Injection",
+                    "DESCRIPTION":"HTML injection is used as a synonym of stored (Type 2) XSS."
+                },{
+                    "TERM":"CSS",
+                    "DESCRIPTION":"In the early years after initial discovery of XSS, CSS was a commonly-used acronym. However, this would cause confusion with Cascading Style Sheets, so usage of this acronym has declined significantly."
+            }]},
+            "modes_of_introduction": {
+                "introduction": [{
+                    "Phase": "Architecture and Design"
+                },{
+                    "Phase": "Implementation",
+                    "Note": "REALIZATION:This weakness is caused during implementation of an architectural security tactic."
+            }]},
+            "exploitation_factors": "", 
+            "likelihood_of_exploit": "",
+            "common_consequences": {
+                "consequence": [{
+                    "Scope": "Access Control Confidentiality",
+                    "Impact": "Bypass Protection Mechanism; Read Application Data",
+                    "Note": "The most common attack performed with cross-site scripting involves the disclosure of information stored in user cookies. Typically, a malicious user will craft a client-side script, which -- when parsed by a web browser -- performs some activity (such as sending all site cookies to a given E-mail address). This script will be loaded and run by each user visiting the web site. Since the site requesting to run the script has access to the cookies in question, the malicious script does also."
+                },{
+                    "Scope": "Integrity Confidentiality Availability",
+                    "Impact": "Execute Unauthorized Code or Commands",
+                    "Note": "In some circumstances it may be possible to run arbitrary code on a victim's computer when cross-site scripting is combined with other flaws."
+                },{
+                    "Scope": "Confidentiality Integrity Availability Access Control",
+                    "Impact": "Execute Unauthorized Code or Commands; Bypass Protection Mechanism; Read Application Data",
+                    "Note": "The consequence of an XSS attack is the same regardless of whether it is stored or reflected. The difference is in how the payload arrives at the server. XSS can cause a variety of problems for the end user that range in severity from an annoyance to complete account compromise. Some cross-site scripting vulnerabilities can be exploited to manipulate or steal cookies, create requests that can be mistaken for those of a valid user, compromise confidential information, or execute malicious code on the end user systems for a variety of nefarious purposes. Other damaging attacks include the disclosure of end user files, installation of Trojan horse programs, redirecting the user to some other page or site, running 'Active X' controls (under Microsoft Internet Explorer) from sites that a user perceives as trustworthy, and modifying presentation of content."
+            }]},
+            "detection_methods": {
+                "detection_method": [{
+                    "METHOD":"Automated Static Analysis",
+                    "DESCRIPTION":"Use automated static analysis tools that target this type of weakness. Many modern techniques use data flow analysis to minimize the number of false positives. This is not a perfect solution, since 100% accuracy and coverage are not feasible, especially when multiple components are involved.",
+                    "EFFECTIVENESS":"Moderate"
+                },{
+                    "METHOD":"Black Box",
+                    "DESCRIPTION":"Use the XSS Cheat Sheet [REF-714] or automated test-generation tools to help launch a wide variety of attacks against your web application. The Cheat Sheet contains many subtle XSS variations that are specifically targeted against weak XSS defenses.",
+                    "EFFECTIVENESS":"Moderate" 
+            }]},
+            "potential_mitigations": {
+                "mitigation": [{
+                    "PHASE": "Architecture and Design",
+                    "STRATEGY": "Libraries or Frameworks",
+                    "DESCRIPTION": "Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid. Examples of libraries and frameworks that make it easier to generate properly encoded output include Microsoft's Anti-XSS library, the OWASP ESAPI Encoding module, and Apache Wicket.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE": "Implementation Architecture and Design",
+                    "STRATEGY":"",
+                    "DESCRIPTION":"Understand the context in which your data will be used and the encoding that will be expected. This is especially important when transmitting data between different components, or when generating outputs that can contain multiple encodings at the same time, such as web pages or multi-part mail messages. Study all expected communication protocols and data representations to determine the required encoding strategies. For any data that will be output to another web page, especially any data that was received from external inputs, use the appropriate encoding on all non-alphanumeric characters. Parts of the same output document may require different encodings, which will vary depending on whether the output is in the: HTML body Element attributes (such as src=XYZ) URIs JavaScript sections Cascading Style Sheets and style property etc. Note that HTML Entity Encoding is only appropriate for the HTML body. Consult the XSS Prevention Cheat Sheet [REF-724] for more details on the types of encoding and escaping that are needed.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Architecture and Design Implementation",
+                    "STRATEGY":"Attack Surface Reduction",
+                    "DESCRIPTION":"Understand all the potential areas where untrusted inputs can enter your software: parameters or arguments, cookies, anything read from the network, environment variables, reverse DNS lookups, query results, request headers, URL components, e-mail, files, filenames, databases, and any external systems that provide data to the application. Remember that such inputs may be obtained indirectly through API calls.",
+                    "EFFECTIVENESS":"Limited",
+                    "Note":""
+                },{
+                    "PHASE":"Architecture and Design Implementation",
+                    "STRATEGY":"",
+                    "DESCRIPTION":"For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Architecture and Design",
+                    "STRATEGY":"Parameterization",
+                    "DESCRIPTION":"If available, use structured mechanisms that automatically enforce the separation between data and code. These mechanisms may be able to provide the relevant quoting, encoding, and validation automatically, instead of relying on the developer to provide this capability at every point where output is generated.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Implementation",
+                    "STRATEGY":"Output Encoding",
+                    "DESCRIPTION":"Use and specify an output encoding that can be handled by the downstream component that is reading the output. Common encodings include ISO-8859-1, UTF-7, and UTF-8. When an encoding is not specified, a downstream component may choose a different encoding, either by assuming a default encoding or automatically inferring which encoding is being used, which can be erroneous. When the encodings are inconsistent, the downstream component might treat some character or byte sequences as special, even if they are not special in the original encoding. Attackers might then be able to exploit this discrepancy and conduct injection attacks; they even might be able to bypass protection mechanisms that assume the original encoding is also being used by the downstream component. The problem of inconsistent output encodings often arises in web pages. If an encoding is not specified in an HTTP header, web browsers often guess about which encoding is being used. This can open up the browser to subtle XSS attacks.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Implementation",
+                    "STRATEGY":"",
+                    "DESCRIPTION":"With Struts, write all data from form beans with the bean's filter attribute set to true.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Implementation",
+                    "STRATEGY":"Attack Surface Reduction",
+                    "DESCRIPTION":"To help mitigate XSS attacks against the user's session cookie, set the session cookie to be HttpOnly. In browsers that support the HttpOnly feature (such as more recent versions of Internet Explorer and Firefox), this attribute can prevent the user's session cookie from being accessible to malicious client-side scripts that use document.cookie. This is not a complete solution, since HttpOnly is not supported by all browsers. More importantly, XMLHTTPRequest and other powerful browser technologies provide read access to HTTP headers, including the Set-Cookie header in which the HttpOnly flag is set.",
+                    "EFFECTIVENESS":"Defense in Depth",
+                    "Note":""
+                },{
+                    "PHASE":"Implementation",
+                    "STRATEGY":"Input Validation",
+                    "DESCRIPTION":"Assume all input is malicious. Use an accept known good input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, boat may be syntactically valid because it only contains alphanumeric characters, but it is not valid if the input is only expected to contain colors such as red or blue. Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers enough room to bypass the intended validation. However, blacklists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright. When dynamically constructing web pages, use stringent whitelists that limit the character set based on the expected value of the parameter in the request. All input should be validated and cleansed, not just parameters that the user is supposed to specify, but all data in the request, including hidden fields, cookies, headers, the URL itself, and so forth. A common mistake that leads to continuing XSS vulnerabilities is to validate only fields that are expected to be redisplayed by the site. It is common to see data from the request that is reflected by the application server or the application that the development team did not anticipate. Also, a field that is not currently reflected may be used by a future developer. Therefore, validating ALL parts of the HTTP request is recommended. Note that proper output encoding, escaping, and quoting is the most effective solution for preventing XSS, although input validation may provide some defense-in-depth. This is because it effectively limits what will appear in output. Input validation will not always prevent XSS, especially if you are required to support free-form text fields that could contain arbitrary characters. For example, in a chat application, the heart emoticon (<3) would likely pass the validation step, since it is commonly used. However, it cannot be directly inserted into the web page because it contains the < character, which would need to be escaped or otherwise handled. In this case, stripping the < might reduce the risk of XSS, but it would produce incorrect behavior because the emoticon would not be recorded. This might seem to be a minor inconvenience, but it would be more important in a mathematical forum that wants to represent inequalities. Even if you make a mistake in your validation (such as forgetting one out of 100 input fields), appropriate encoding is still likely to protect you from injection-based attacks. As long as it is not done in isolation, input validation is still a useful technique, since it may significantly reduce your attack surface, allow you to detect some attacks, and provide other security benefits that proper encoding does not address. Ensure that you perform input validation at well-defined interfaces within the application. This will help protect the application even if a component is reused or moved elsewhere.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Architecture and Design",
+                    "STRATEGY":"Enforcement by Conversion",
+                    "DESCRIPTION":"When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Operation",
+                    "STRATEGY":"Firewall",
+                    "DESCRIPTION":"Use an application firewall that can detect attacks against this weakness. It can be beneficial in cases in which the code cannot be fixed (because it is controlled by a third party), as an emergency prevention measure while more comprehensive software assurance measures are applied, or to provide defense in depth.",
+                    "EFFECTIVENESS":"Moderate",
+                    "Note":""
+                },{
+                    "PHASE":"Operation Implementation",
+                    "STRATEGY":"Environment Hardening",
+                    "DESCRIPTION":"When using PHP, configure the application so that it does not use register_globals. During implementation, develop the application so that it does not rely on this feature, but be wary of implementing a register_globals emulation that is subject to weaknesses such as CWE-95, CWE-621, and similar issues.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+            }]},
+            "observed_examples":{
+                "observed_example":[{
+                    "REFERENCE":"CVE-2014-8958",
+                    "DESCRIPTION":"Admin GUI allows XSS through cookie.",
+                    "LINK":"http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8958"
+                },{
+                    "REFERENCE":"CVE-2017-9764",
+                    "DESCRIPTION":"Web stats program allows XSS through crafted HTTP header.",
+                    "LINK":"http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9764"
+                },{
+                    "REFERENCE":"CVE-2014-5198",
+                    "DESCRIPTION":"Web log analysis product allows XSS through crafted HTTP Referer header.",
+                    "LINK":"http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5198"
+                },{
+                    "REFERENCE":"CVE-2008-5080",
+                    "DESCRIPTION":"Chain: protection mechanism failure allows XSS",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5080"
+                },{
+                    "REFERENCE":"CVE-2006-4308",
+                    "DESCRIPTION":"Chain: incomplete blacklist (CWE-184) only checks javascript: tag, allowing XSS (CWE-79) using other tags",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4308"
+                },{
+                    "REFERENCE":"CVE-2007-5727",
+                    "DESCRIPTION":"Chain: incomplete blacklist (CWE-184) only removes SCRIPT tags, enabling XSS (CWE-79)",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5727"
+                },{
+                    "REFERENCE":"CVE-2008-5770",
+                    "DESCRIPTION":"Reflected XSS using the PATH_INFO in a URL",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5770"
+                },{
+                    "REFERENCE":"CVE-2008-4730",
+                    "DESCRIPTION":"Reflected XSS not properly handled when generating an error message.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4730"
+                },{
+                    "REFERENCE":"CVE-2008-5734",
+                    "DESCRIPTION":"Reflected XSS sent through email message.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5734"
+                },{
+                    "REFERENCE":"CVE-2008-0971",
+                    "DESCRIPTION":"Stored XSS in a security product.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0971"
+                },{
+                    "REFERENCE":"CVE-2008-5249",
+                    "DESCRIPTION":"Stored XSS using a wiki page.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5249"
+                },{
+                    "REFERENCE":"CVE-2006-3568",
+                    "DESCRIPTION":"Stored XSS in a guestbook application.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3568"
+                },{
+                    "REFERENCE":"CVE-2006-3211",
+                    "DESCRIPTION":"Stored XSS in a guestbook application using a javascript: URI in a bbcode img tag.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3211"
+                },{
+                    "REFERENCE":"CVE-2006-3295",
+                    "DESCRIPTION":"Chain: library file is not protected against a direct request (CWE-425), leading to reflected XSS (CWE-79).",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3295"
+            }]},
+            "functional_areas": "", 
+            "affected_resources": "", 
+            "taxonomy_mappings":{
+                "taxonomy_mapping":[{
+                    "TAXONOMY NAME":"PLOVER",
+                    "ENTRY ID":"",
+                    "FIT":"",
+                    "ENTRY NAME":"Cross-site scripting (XSS)"
+                },{
+                    "TAXONOMY NAME":"7 Pernicious Kingdoms",
+                    "ENTRY ID":"",
+                    "FIT":"",
+                    "ENTRY NAME":"Cross-site Scripting"
+                },{
+                    "TAXONOMY NAME":"CLASP",
+                    "ENTRY ID":"",
+                    "FIT":"",
+                    "ENTRY NAME":"Cross-site scripting"
+                },{
+                    "TAXONOMY NAME":"OWASP Top Ten 2007",
+                    "ENTRY ID":"A1",
+                    "FIT":"Exact",
+                    "ENTRY NAME":"Cross Site Scripting (XSS)"
+                },{
+                    "TAXONOMY NAME":"OWASP Top Ten 2004",
+                    "ENTRY ID":"A1",
+                    "FIT":"CWE More Specific",
+                    "ENTRY NAME":"Unvalidated Input"
+                },{
+                    "TAXONOMY NAME":"OWASP Top Ten 2004",
+                    "ENTRY ID":"A4",
+                    "FIT":"Exact",
+                    "ENTRY NAME":"Cross-Site Scripting (XSS) Flaws"
+                },{
+                    "TAXONOMY NAME":"WASC",
+                    "ENTRY ID":"8",                    
+                    "FIT":"",
+                    "ENTRY NAME":"Cross-site Scripting"
+                },{
+                    "TAXONOMY NAME":"Software Fault Patterns",
+                    "ENTRY ID":"SFP24",
+                    "FIT":"",
+                    "ENTRY NAME":"Tainted input to command"
+                },{
+                    "TAXONOMY NAME":"OMG ASCSM",
+                    "ENTRY ID":"ASCSM-CWE-79",
+                    "FIT":"",
+                    "ENTRY NAME":""
+            }]},
+            "related_attack_patterns": "::209::588::591::592::63::85::",
+            "notes":{
+                "note":{
+                    "TYPE":"Relationship",
+                    "NOTE":"There can be a close relationship between XSS and CSRF (CWE-352). An attacker might use CSRF in order to trick the victim into submitting requests to the server in which the requests contain an XSS payload. A well-known example of this was the Samy worm on MySpace [REF-956]. The worm used XSS to insert malicious HTML sequences into a user's profile and add the attacker as a MySpace friend. MySpace friends of that victim would then execute the payload to modify their own profiles, causing the worm to propagate exponentially. Since the victims did not intentionally insert the malicious script themselves, CSRF was a root cause."
+                }}
+        }
+    },
+	{
+	"CWE":{ 
+            "cwe_id": "89",
+            "name": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')", 
+            "weakness_abstraction": "Base",
+            "status": "Stable", 
+            "description": "The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.", 
+            "extended_description": "Without sufficient removal or quoting of SQL syntax in user-controllable inputs, the generated SQL query can cause those inputs to be interpreted as SQL instead of ordinary user data. This can be used to alter query logic to bypass security checks, or to insert additional statements that modify the back-end database, possibly including execution of system commands. SQL injection has become a common issue with database-driven web sites. The flaw is easily detected, and easily exploited, and as such, any site or software package with even a minimal user base is likely to be subject to an attempted attack of this kind. This flaw depends on the fact that SQL makes no real distinction between the control and data planes.", 
+            "related_weaknesses": { 
+                "related_weakness": [{
+                    "NATURE":"ChildOf",
+                    "CWE ID":"943",
+                    "VIEW ID":"1000",
+                    "ORDINAL":"Primary"
+                },{
+                    "NATURE":"ChildOf",
+                    "CWE ID":"74",
+                    "VIEW ID":"1003",
+                    "ORDINAL":"Primary"
+            }]},
+            "weakness_ordinalities": "",
+            "applicable_platforms": {
+                "applicable_platform": {
+                    "Language": {
+                        "Class": "Language-Independent",
+                        "Prevalence": "Undetermined"
+                    },
+                    "Technology": {
+                        "Class": "Database Server",
+                        "Prevalence": "Undetermined"
+            }}},
+            "background_details": "",
+            "alternate_terms": "",
+            "modes_of_introduction": {
+                "introduction": [{
+                    "Phase": "Architecture and Design",
+                    "Note": "This weakness typically appears in data-rich applications that save user inputs in a database."
+                },{
+                    "Phase": "Implementation",
+                    "Note": "REALIZATION: This weakness is caused during implementation of an architectural security tactic."
+            }]},
+            "exploitation_factors": "",
+            "likelihood_of_exploit": "", 
+            "common_consequences": {
+                "consequence": [{
+                    "Scope": "Confidentiality",
+                    "Impact": "Read Application Data",
+                    "Note": "Since SQL databases generally hold sensitive data, loss of confidentiality is a frequent problem with SQL injection vulnerabilities."
+                },{
+                    "Scope": "Access Control",
+                    "Impact": "Bypass Protection Mechanism",
+                    "Note": "If poor SQL commands are used to check user names and passwords, it may be possible to connect to a system as another user with no previous knowledge of the password."
+                },{
+                    "Scope": "Access Control",
+                    "Impact": "Bypass Protection Mechanism",
+                    "Note": "If authorization information is held in a SQL database, it may be possible to change this information through the successful exploitation of a SQL injection vulnerability."
+                },{
+                    "Scope": "Integrity",
+                    "Impact": "Modify Application Data",
+                    "Note": "Just as it may be possible to read sensitive information, it is also possible to make changes or even delete this information with a SQL injection attack."  
+            }]},
+            "detection_methods": {
+                "detection_method": [{
+                    "METHOD": "Automated Static Analysis",
+                    "DESCRIPTION":"This weakness can often be detected using automated static analysis tools. Many modern tools use data flow analysis or constraint-based techniques to minimize the number of false positives. Automated static analysis might not be able to recognize when proper input validation is being performed, leading to false positives - i.e., warnings that do not have any security consequences or do not require any code changes. Automated static analysis might not be able to detect the usage of custom API functions or third-party libraries that indirectly invoke SQL commands, leading to false negatives - especially if the API/library code is not available for analysis",
+                    "EFFECTIVENESS": ""
+                },{
+                    "METHOD": "Automated Dynamic Analysis",
+                    "DESCRIPTION":"This weakness can be detected using dynamic tools and techniques that interact with the software using large test suites with many diverse inputs, such as fuzz testing (fuzzing), robustness testing, and fault injection. The software's operation may slow down, but it should not become unstable, crash, or generate incorrect results",
+                    "EFFECTIVENESS": "Moderate"
+                },{
+                    "METHOD": "Manual Analysis",
+                    "DESCRIPTION":"Manual analysis can be useful for finding this weakness, but it might not achieve desired code coverage within limited time constraints. This becomes difficult for weaknesses that must be considered for all inputs, since the attack surface can be too large.",
+                    "EFFECTIVENESS": ""
+                },{
+                    "METHOD": "Automated Static Analysis - Binary or Bytecode",
+                    "DESCRIPTION":"According to SOAR, the following detection techniques may be useful: Highly cost effective: Bytecode Weakness Analysis - including disassembler + source code weakness analysis Binary Weakness Analysis - including disassembler + source code weakness analysis",
+                    "EFFECTIVENESS": "High"
+                },{
+                    "METHOD": "Dynamic Analysis with Automated Results Interpretation",
+                    "DESCRIPTION":"According to SOAR, the following detection techniques may be useful: Highly cost effective: Database Scanners Cost effective for partial coverage: Web Application Scanner Web Services Scanner",
+                    "EFFECTIVENESS": "High"
+                },{
+                    "METHOD": "Dynamic Analysis with Manual Results Interpretation",
+                    "DESCRIPTION":"According to SOAR, the following detection techniques may be useful: Cost effective for partial coverage: Fuzz Tester Framework-based Fuzzer",
+                    "EFFECTIVENESS": "SOAR Partial"
+                },{
+                    "METHOD": "Manual Static Analysis - Source Code",
+                    "DESCRIPTION":"According to SOAR, the following detection techniques may be useful: Highly cost effective: Manual Source Code Review (not inspections) Cost effective for partial coverage: Focused Manual Spotcheck - Focused manual analysis of source",
+                    "EFFECTIVENESS": "High"
+                },{
+                    "METHOD": "Automated Static Analysis - Source Code",
+                    "DESCRIPTION":"According to SOAR, the following detection techniques may be useful: Highly cost effective: Source code Weakness Analyzer Context-configured Source Code Weakness Analyzer",
+                    "EFFECTIVENESS": "High"
+                },{
+                    "METHOD": "Architecture or Design Review",
+                    "DESCRIPTION":"According to SOAR, the following detection techniques may be useful: Highly cost effective: Formal Methods / Correct-By-Construction Cost effective for partial coverage: Inspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)",
+                    "EFFECTIVENESS": "High"
+            }]},
+            "potential_mitigations": {
+                "mitigation": [{
+                    "PHASE": "Architecture and Design",
+                    "STRATEGY": "Libraries or Frameworks",
+                    "DESCRIPTION": "Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid. For example, consider using persistence layers such as Hibernate or Enterprise Java Beans, which can provide significant protection against SQL injection if used properly.",
+                    "EFFECTIVENESS": "",
+                    "Note":""
+                },{
+                    "PHASE": "Architecture and Design",
+                    "STRATEGY": "Parameterization",
+                    "DESCRIPTION": "If available, use structured mechanisms that automatically enforce the separation between data and code. These mechanisms may be able to provide the relevant quoting, encoding, and validation automatically, instead of relying on the developer to provide this capability at every point where output is generated. Process SQL queries using prepared statements, parameterized queries, or stored procedures. These features should accept parameters or variables and support strong typing. Do not dynamically construct and execute query strings within these features using exec or similar functionality, since this may re-introduce the possibility of SQL injection. [REF-867]",
+                    "EFFECTIVENESS": "",
+                    "Note":""
+                },{
+                    "PHASE": "Architecture and Design; Operation",
+                    "STRATEGY": "Environment Hardening",
+                    "DESCRIPTION": "Run your code using the lowest privileges that are required to accomplish the necessary tasks [REF-76]. If possible, create isolated accounts with limited privileges that are only used for a single task. That way, a successful attack will not immediately give the attacker access to the rest of the software or its environment. For example, database applications rarely need to run as the database administrator, especially in day-to-day operations.Specifically, follow the principle of least privilege when creating user accounts to a SQL database. The database users should only have the minimum privileges necessary to use their account. If the requirements of the system indicate that a user can read and modify their own data, then limit their privileges so they cannot read/write others' data. Use the strictest permissions possible on all database objects, such as execute-only for stored procedures.",
+                    "EFFECTIVENESS": "",
+                    "Note":""
+                },{
+                    "PHASE": "Architecture and Design",
+                    "STRATEGY": "",
+                    "DESCRIPTION": "For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.",
+                    "EFFECTIVENESS": "",
+                    "Note":""
+                },{
+                    "PHASE": "Implementation",
+                    "STRATEGY": "Output Encoding",
+                    "DESCRIPTION": "While it is risky to use dynamically-generated query strings, code, or commands that mix control and data together, sometimes it may be unavoidable. Properly quote arguments and escape any special characters within those arguments. The most conservative approach is to escape or filter all characters that do not pass an extremely strict allowlist (such as everything that is not alphanumeric or white space). If some special characters are still needed, such as white space, wrap each argument in quotes after the escaping/filtering step. Be careful of argument injection (CWE-88). Instead of building a new implementation, such features may be available in the database or programming language. For example, the Oracle DBMS_ASSERT package can check or enforce that parameters have certain properties that make them less vulnerable to SQL injection. For MySQL, the mysql_real_escape_string() API function is available in both C and PHP.",
+                    "EFFECTIVENESS": "",
+                    "Note":""
+                },{
+                    "PHASE": "Implementation",
+                    "STRATEGY": " Input Validation",
+                    "DESCRIPTION": "Assume all input is malicious. Use an 'accept known good' input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, 'boat' may be syntactically valid because it only contains alphanumeric characters, but it is not valid if the input is only expected to contain colors such as 'red' or 'blue.' Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers enough room to bypass the intended validation. However, denylists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright. When constructing SQL query strings, use stringent allowlists that limit the character set based on the expected value of the parameter in the request. This will indirectly limit the scope of an attack, but this technique is less important than proper output encoding and escaping. Note that proper output encoding, escaping, and quoting is the most effective solution for preventing SQL injection, although input validation may provide some defense-in-depth. This is because it effectively limits what will appear in output. Input validation will not always prevent SQL injection, especially if you are required to support free-form text fields that could contain arbitrary characters. For example, the name 'O'Reilly' would likely pass the validation step, since it is a common last name in the English language. However, it cannot be directly inserted into the database because it contains the ''' apostrophe character, which would need to be escaped or otherwise handled. In this case, stripping the apostrophe might reduce the risk of SQL injection, but it would produce incorrect behavior because the wrong name would be recorded. When feasible, it may be safest to disallow meta-characters entirely, instead of escaping them. This will provide some defense in depth. After the data is entered into the database, later processes may neglect to escape meta-characters before use, and you may not have control over those processes.",
+                    "EFFECTIVENESS": "",
+                    "Note":""
+                },{
+                    "PHASE": "Architecture and Design",
+                    "STRATEGY": "Enforcement by Conversion",
+                    "DESCRIPTION": "When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.",
+                    "EFFECTIVENESS": "",
+                    "Note":""
+                },{ 
+                    "PHASE": "Implementation",
+                    "STRATEGY": "",
+                    "DESCRIPTION": "Ensure that error messages only contain minimal details that are useful to the intended audience and no one else. The messages need to strike the balance between being too cryptic (which can confuse users) or being too detailed (which may reveal more than intended). The messages should not reveal the methods that were used to determine the error. Attackers can use detailed information to refine or optimize their original attack, thereby increasing their chances of success. If errors must be captured in some detail, record them in log messages, but consider what could occur if the log messages can be viewed by attackers. Highly sensitive information such as passwords should never be saved to log files. Avoid inconsistent messaging that might accidentally tip off an attacker about internal state, such as whether a user account exists or not. In the context of SQL Injection, error messages revealing the structure of a SQL query can help attackers tailor successful attack strings.",
+                    "EFFECTIVENESS": "",
+                    "Note":""
+                },{
+                    "PHASE": "Operation",
+                    "STRATEGY": "Firewall",
+                    "DESCRIPTION": "Use an application firewall that can detect attacks against this weakness. It can be beneficial in cases in which the code cannot be fixed (because it is controlled by a third party), as an emergency prevention measure while more comprehensive software assurance measures are applied, or to provide defense in depth.",
+                    "Effectiveness": "Moderate",
+                    "Note": "An application firewall might not cover all possible input vectors. In addition, attack techniques might be available to bypass the protection mechanism, such as using malformed inputs that can still be processed by the component that receives those inputs. Depending on functionality, an application firewall might inadvertently reject or modify legitimate requests. Finally, some manual effort may be required for customization."
+                },{
+                    "PHASE": "Operation; Implementation",
+                    "STRATEGY": "Environment Hardening",
+                    "DESCRIPTION": "When using PHP, configure the application so that it does not use register_globals. During implementation, develop the application so that it does not rely on this feature, but be wary of implementing a register_globals emulation that is subject to weaknesses such as CWE-95, CWE-621, and similar issues.",
+                    "EFFECTIVENESS": "",
+                    "Note":""
+            }]},
+            "observed_examples": {
+                "observed_example": [{
+                    "REFERENCE": "CVE-2004-0366",
+                    "DESCRIPTION": "chain: SQL injection in library intended for database authentication allows SQL injection and authentication bypass.",
+                    "LINK": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2004-0366"
+                },{
+                    "REFERENCE": "CVE-2008-2790",
+                    "DESCRIPTION": "SQL injection through an ID that was supposed to be numeric.",
+                    "LINK": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2790"
+                },{
+                    "REFERENCE": "CVE-2008-2223",
+                    "DESCRIPTION": "SQL injection through an ID that was supposed to be numeric.",
+                    "LINK": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2223"
+                },{
+                    "REFERENCE": "CVE-2007-6602",
+                    "DESCRIPTION": "SQL injection via user name",
+                    "LINK": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6602"
+                },{
+                    "REFERENCE": "CVE-2008-5817",
+                    "DESCRIPTION": "SQL injection via user name or password fields.",
+                    "LINK": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5817"
+                },{
+                    "REFERENCE": "CVE-2003-0377",
+                    "DESCRIPTION": "SQL injection in security product, using a crafted group name.",
+                    "LINK": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-037"
+                },{
+                    "REFERENCE": "CVE-2008-2380",
+                    "DESCRIPTION": "SQL injection in authentication library.",
+                    "LINK": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-2380"
+                },{
+                    "REFERENCE": "CVE-2017-11508",
+                    "DESCRIPTION": "SQL injection in vulnerability management and reporting tool, using a crafted password.",
+                    "LINK": "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-11508"
+            }]},
+            "functional_areas": "",
+            "affected_resources": "",
+            "taxonomy_mappings": {
+                "taxonomy_mapping": [{
+                    "TAXONOMY NAME": "PLOVER",
+                    "ENTRY ID":"",
+                    "FIT":"",
+                    "ENTRY NAME": "SQL injection"
+                },{
+                    "TAXONOMY NAME": "7 Pernicious Kingdoms",
+                    "ENTRY ID":"",
+                    "FIT":"",
+                    "ENTRY NAME": "SQL Injection"
+                },{
+                    "TAXONOMY NAME": "CLASP",
+                    "ENTRY ID":"",
+                    "FIT":"",
+                    "ENTRY NAME": "SQL injection"
+                },{
+                    "TAXONOMY NAME": "OWASP Top Ten 2007",
+                    "ENTRY ID":"A2",
+                    "FIT":"CWE More Specific",
+                    "ENTRY NAME": "Injection Flaws"	
+                },{
+                    "TAXONOMY NAME": "OWASP Top Ten 2004",
+                    "ENTRY ID":"A1",
+                    "FIT":"CWE More Specific",
+                    "ENTRY NAME": "Unvalidated Input"
+                },{
+                    "TAXONOMY NAME": "OWASP Top Ten 2004",
+                    "ENTRY ID":"A6",
+                    "FIT":"CWE More Specific",
+                    "ENTRY NAME": "Injection Flaws"
+                },{
+                    "TAXONOMY NAME": "WASC",
+                    "ENTRY ID":"19",
+                    "FIT":"",
+                    "ENTRY NAME": "SQL injection"	
+                },{
+                    "TAXONOMY NAME": "Software Fault Patterns",
+                    "ENTRY ID":"SFP24",
+                    "FIT":"",
+                    "ENTRY NAME": "Tainted input to command"
+                },{
+                    "TAXONOMY NAME": "OMG ASCSM",
+                    "ENTRY ID":"ASCSM-CWE-89",
+                    "FIT":"",
+                    "ENTRY NAME": ""
+                },{
+                    "TAXONOMY NAME": "SEI CERT Oracle Coding Standard for Java",
+                    "ENTRY ID":"IDS00-J",
+                    "FIT":"Exact",
+                    "ENTRY NAME": "Prevent SQL injection"	
+            }]},
+            "related_attack_patterns": "::108::109::110::470::66::7::", 
+            "notes": {
+                "note":{
+                    "TYPE": "Relationship",
+                    "NOTE":"SQL injection can be resultant from special character mismanagement, MAID, or blacklist/whitelist problems. It can be primary to authentication errors."
+                }}
+        },
+{
+    "CWE_Items" :[{
+        "CWE":{ 
+            "cwe_id": "79",
+            "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')", 
+            "weakness_abstraction": "Base", 
+            "status": "Stable",
+            "description": "The software does not neutralize or incorrectly neutralizes user-controllable input before it is placed in output that is used as a web page that is served to other users.", 
+            "extended_description": "Cross-site scripting (XSS) vulnerabilities occur when: 1. Untrusted data enters a web application, typically from a web request. 2. The web application dynamically generates a web page that contains this untrusted data. 3. During page generation, the application does not prevent the data from containing content that is executable by a web browser, such as JavaScript, HTML tags, HTML attributes, mouse events, Flash, ActiveX, etc. 4. A victim visits the generated web page through a web browser, which contains malicious script that was injected using the untrusted data. 5. Since the script comes from a web page that was sent by the web server, the victim's web browser executes the malicious script in the context of the web server's domain. 6. This effectively violates the intention of the web browser's same-origin policy, which states that scripts in one domain should not be able to access resources or run code in a different domain. There are three main kinds of XSS: Type 1: Reflected XSS (or Non-Persistent) - The server reads data directly from the HTTP request and reflects it back in the HTTP response. Reflected XSS exploits occur when an attacker causes a victim to supply dangerous content to a vulnerable web application, which is then reflected back to the victim and executed by the web browser. The most common mechanism for delivering malicious content is to include it as a parameter in a URL that is posted publicly or e-mailed directly to the victim. URLs constructed in this manner constitute the core of many phishing schemes, whereby an attacker convinces a victim to visit a URL that refers to a vulnerable site. After the site reflects the attacker's content back to the victim, the content is executed by the victim's browser. Type 2: Stored XSS (or Persistent) - The application stores dangerous data in a database, message forum, visitor log, or other trusted data store. At a later time, the dangerous data is subsequently read back into the application and included in dynamic content. From an attacker's perspective, the optimal place to inject malicious content is in an area that is displayed to either many users or particularly interesting users. Interesting users typically have elevated privileges in the application or interact with sensitive data that is valuable to the attacker. If one of these users executes malicious content, the attacker may be able to perform privileged operations on behalf of the user or gain access to sensitive data belonging to the user. For example, the attacker might inject XSS into a log message, which might not be handled properly when an administrator views the logs. Type 0: DOM-Based XSS - In DOM-based XSS, the client performs the injection of XSS into the page; in the other types, the server performs the injection. DOM-based XSS generally involves server-controlled, trusted script that is sent to the client, such as Javascript that performs sanity checks on a form before the user submits it. If the server-supplied script processes user-supplied data and then injects it back into the web page (such as with dynamic HTML), then DOM-based XSS is possible. Once the malicious script is injected, the attacker can perform a variety of malicious activities. The attacker could transfer private information, such as cookies that may include session information, from the victim's machine to the attacker. The attacker could send malicious requests to a web site on behalf of the victim, which could be especially dangerous to the site if the victim has administrator privileges to manage that site. Phishing attacks could be used to emulate trusted web sites and trick the victim into entering a password, allowing the attacker to compromise the victim's account on that web site. Finally, the script could exploit a vulnerability in the web browser itself possibly taking over the victim's machine, sometimes referred to as drive-by hacking. In many cases, the attack can be launched without the victim even being aware of it. Even with careful users, attackers frequently use a variety of methods to encode the malicious portion of the attack, such as URL encoding or Unicode, so the request looks less suspicious.",
+            "related_weaknesses": { 
+                "related_weakness":[{
+                    "NATURE":"ChildOf",
+                    "CWE ID":"74",
+                    "VIEW ID":"1000",
+                    "ORDINAL":"Primary"
+                },{
+                    "NATURE":"ChildOf",
+                    "CWE ID":"74",
+                    "VIEW ID":"1003",
+                    "ORDINAL":"Primary"
+                },{
+                    "NATURE ":"CanPrecede",
+                    "CWE ID":"494",
+                    "VIEW ID":"1000",
+                    "ORDINAL":""
+                },{
+                    "NATURE":"PeerOf",
+                    "CWE ID":"352",
+                    "VIEW ID":"1000",
+                    "ORDINAL":""
+            }]},
+            "weakness_ordinalities": {
+                "weakness_ordinality": {
+                    "ORDINALITY":"Resultant",
+                    "DESCRIPTION":""
+            }},
+            "applicable_platforms": {
+                "applicable_platform": {
+                    "Language": {
+                        "Class": "Language-Independent",
+                        "Prevalence": "Undetermined"
+                    },
+                    "Technology": {
+                        "Class": "Web Based",
+                        "Prevalence": "Often"
+            }}},
+            "background_details": {
+                "background_detail": "Same Origin Policy The same origin policy states that browsers should limit the resources accessible to scripts running on a given web site, or origin, to the resources associated with that web site on the client-side, and not the client-side resources of any other sites or origins. The goal is to prevent one site from being able to modify or read the contents of an unrelated site. Since the World Wide Web involves interactions between many sites, this policy is important for browsers to enforce. Domain The Domain of a website when referring to XSS is roughly equivalent to the resources associated with that website on the client-side of the connection. That is, the domain can be thought of as all resources the browser is storing for the user's interactions with this particular site."	
+            },
+            "alternate_terms":{
+                "alternate_term": [{
+                    "TERM":"XSS",
+                    "DESCRIPTION":"XSS is a common abbreviation for Cross-Site Scripting."
+                },{
+                    "TERM":"HTML Injection",
+                    "DESCRIPTION":"HTML injection is used as a synonym of stored (Type 2) XSS."
+                },{
+                    "TERM":"CSS",
+                    "DESCRIPTION":"In the early years after initial discovery of XSS, CSS was a commonly-used acronym. However, this would cause confusion with Cascading Style Sheets, so usage of this acronym has declined significantly."
+            }]},
+            "modes_of_introduction": {
+                "introduction": [{
+                    "Phase": "Architecture and Design"
+                },{
+                    "Phase": "Implementation",
+                    "Note": "REALIZATION:This weakness is caused during implementation of an architectural security tactic."
+            }]},
+            "exploitation_factors": "", 
+            "likelihood_of_exploit": "",
+            "common_consequences": {
+                "consequence": [{
+                    "Scope": "Access Control Confidentiality",
+                    "Impact": "Bypass Protection Mechanism; Read Application Data",
+                    "Note": "The most common attack performed with cross-site scripting involves the disclosure of information stored in user cookies. Typically, a malicious user will craft a client-side script, which -- when parsed by a web browser -- performs some activity (such as sending all site cookies to a given E-mail address). This script will be loaded and run by each user visiting the web site. Since the site requesting to run the script has access to the cookies in question, the malicious script does also."
+                },{
+                    "Scope": "Integrity Confidentiality Availability",
+                    "Impact": "Execute Unauthorized Code or Commands",
+                    "Note": "In some circumstances it may be possible to run arbitrary code on a victim's computer when cross-site scripting is combined with other flaws."
+                },{
+                    "Scope": "Confidentiality Integrity Availability Access Control",
+                    "Impact": "Execute Unauthorized Code or Commands; Bypass Protection Mechanism; Read Application Data",
+                    "Note": "The consequence of an XSS attack is the same regardless of whether it is stored or reflected. The difference is in how the payload arrives at the server. XSS can cause a variety of problems for the end user that range in severity from an annoyance to complete account compromise. Some cross-site scripting vulnerabilities can be exploited to manipulate or steal cookies, create requests that can be mistaken for those of a valid user, compromise confidential information, or execute malicious code on the end user systems for a variety of nefarious purposes. Other damaging attacks include the disclosure of end user files, installation of Trojan horse programs, redirecting the user to some other page or site, running 'Active X' controls (under Microsoft Internet Explorer) from sites that a user perceives as trustworthy, and modifying presentation of content."
+            }]},
+            "detection_methods": {
+                "detection_method": [{
+                    "METHOD":"Automated Static Analysis",
+                    "DESCRIPTION":"Use automated static analysis tools that target this type of weakness. Many modern techniques use data flow analysis to minimize the number of false positives. This is not a perfect solution, since 100% accuracy and coverage are not feasible, especially when multiple components are involved.",
+                    "EFFECTIVENESS":"Moderate"
+                },{
+                    "METHOD":"Black Box",
+                    "DESCRIPTION":"Use the XSS Cheat Sheet [REF-714] or automated test-generation tools to help launch a wide variety of attacks against your web application. The Cheat Sheet contains many subtle XSS variations that are specifically targeted against weak XSS defenses.",
+                    "EFFECTIVENESS":"Moderate" 
+            }]},
+            "potential_mitigations": {
+                "mitigation": [{
+                    "PHASE": "Architecture and Design",
+                    "STRATEGY": "Libraries or Frameworks",
+                    "DESCRIPTION": "Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid. Examples of libraries and frameworks that make it easier to generate properly encoded output include Microsoft's Anti-XSS library, the OWASP ESAPI Encoding module, and Apache Wicket.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE": "Implementation Architecture and Design",
+                    "STRATEGY":"",
+                    "DESCRIPTION":"Understand the context in which your data will be used and the encoding that will be expected. This is especially important when transmitting data between different components, or when generating outputs that can contain multiple encodings at the same time, such as web pages or multi-part mail messages. Study all expected communication protocols and data representations to determine the required encoding strategies. For any data that will be output to another web page, especially any data that was received from external inputs, use the appropriate encoding on all non-alphanumeric characters. Parts of the same output document may require different encodings, which will vary depending on whether the output is in the: HTML body Element attributes (such as src=XYZ) URIs JavaScript sections Cascading Style Sheets and style property etc. Note that HTML Entity Encoding is only appropriate for the HTML body. Consult the XSS Prevention Cheat Sheet [REF-724] for more details on the types of encoding and escaping that are needed.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Architecture and Design Implementation",
+                    "STRATEGY":"Attack Surface Reduction",
+                    "DESCRIPTION":"Understand all the potential areas where untrusted inputs can enter your software: parameters or arguments, cookies, anything read from the network, environment variables, reverse DNS lookups, query results, request headers, URL components, e-mail, files, filenames, databases, and any external systems that provide data to the application. Remember that such inputs may be obtained indirectly through API calls.",
+                    "EFFECTIVENESS":"Limited",
+                    "Note":""
+                },{
+                    "PHASE":"Architecture and Design Implementation",
+                    "STRATEGY":"",
+                    "DESCRIPTION":"For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Architecture and Design",
+                    "STRATEGY":"Parameterization",
+                    "DESCRIPTION":"If available, use structured mechanisms that automatically enforce the separation between data and code. These mechanisms may be able to provide the relevant quoting, encoding, and validation automatically, instead of relying on the developer to provide this capability at every point where output is generated.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Implementation",
+                    "STRATEGY":"Output Encoding",
+                    "DESCRIPTION":"Use and specify an output encoding that can be handled by the downstream component that is reading the output. Common encodings include ISO-8859-1, UTF-7, and UTF-8. When an encoding is not specified, a downstream component may choose a different encoding, either by assuming a default encoding or automatically inferring which encoding is being used, which can be erroneous. When the encodings are inconsistent, the downstream component might treat some character or byte sequences as special, even if they are not special in the original encoding. Attackers might then be able to exploit this discrepancy and conduct injection attacks; they even might be able to bypass protection mechanisms that assume the original encoding is also being used by the downstream component. The problem of inconsistent output encodings often arises in web pages. If an encoding is not specified in an HTTP header, web browsers often guess about which encoding is being used. This can open up the browser to subtle XSS attacks.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Implementation",
+                    "STRATEGY":"",
+                    "DESCRIPTION":"With Struts, write all data from form beans with the bean's filter attribute set to true.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Implementation",
+                    "STRATEGY":"Attack Surface Reduction",
+                    "DESCRIPTION":"To help mitigate XSS attacks against the user's session cookie, set the session cookie to be HttpOnly. In browsers that support the HttpOnly feature (such as more recent versions of Internet Explorer and Firefox), this attribute can prevent the user's session cookie from being accessible to malicious client-side scripts that use document.cookie. This is not a complete solution, since HttpOnly is not supported by all browsers. More importantly, XMLHTTPRequest and other powerful browser technologies provide read access to HTTP headers, including the Set-Cookie header in which the HttpOnly flag is set.",
+                    "EFFECTIVENESS":"Defense in Depth",
+                    "Note":""
+                },{
+                    "PHASE":"Implementation",
+                    "STRATEGY":"Input Validation",
+                    "DESCRIPTION":"Assume all input is malicious. Use an accept known good input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, boat may be syntactically valid because it only contains alphanumeric characters, but it is not valid if the input is only expected to contain colors such as red or blue. Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers enough room to bypass the intended validation. However, blacklists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright. When dynamically constructing web pages, use stringent whitelists that limit the character set based on the expected value of the parameter in the request. All input should be validated and cleansed, not just parameters that the user is supposed to specify, but all data in the request, including hidden fields, cookies, headers, the URL itself, and so forth. A common mistake that leads to continuing XSS vulnerabilities is to validate only fields that are expected to be redisplayed by the site. It is common to see data from the request that is reflected by the application server or the application that the development team did not anticipate. Also, a field that is not currently reflected may be used by a future developer. Therefore, validating ALL parts of the HTTP request is recommended. Note that proper output encoding, escaping, and quoting is the most effective solution for preventing XSS, although input validation may provide some defense-in-depth. This is because it effectively limits what will appear in output. Input validation will not always prevent XSS, especially if you are required to support free-form text fields that could contain arbitrary characters. For example, in a chat application, the heart emoticon (<3) would likely pass the validation step, since it is commonly used. However, it cannot be directly inserted into the web page because it contains the < character, which would need to be escaped or otherwise handled. In this case, stripping the < might reduce the risk of XSS, but it would produce incorrect behavior because the emoticon would not be recorded. This might seem to be a minor inconvenience, but it would be more important in a mathematical forum that wants to represent inequalities. Even if you make a mistake in your validation (such as forgetting one out of 100 input fields), appropriate encoding is still likely to protect you from injection-based attacks. As long as it is not done in isolation, input validation is still a useful technique, since it may significantly reduce your attack surface, allow you to detect some attacks, and provide other security benefits that proper encoding does not address. Ensure that you perform input validation at well-defined interfaces within the application. This will help protect the application even if a component is reused or moved elsewhere.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Architecture and Design",
+                    "STRATEGY":"Enforcement by Conversion",
+                    "DESCRIPTION":"When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+                },{
+                    "PHASE":"Operation",
+                    "STRATEGY":"Firewall",
+                    "DESCRIPTION":"Use an application firewall that can detect attacks against this weakness. It can be beneficial in cases in which the code cannot be fixed (because it is controlled by a third party), as an emergency prevention measure while more comprehensive software assurance measures are applied, or to provide defense in depth.",
+                    "EFFECTIVENESS":"Moderate",
+                    "Note":""
+                },{
+                    "PHASE":"Operation Implementation",
+                    "STRATEGY":"Environment Hardening",
+                    "DESCRIPTION":"When using PHP, configure the application so that it does not use register_globals. During implementation, develop the application so that it does not rely on this feature, but be wary of implementing a register_globals emulation that is subject to weaknesses such as CWE-95, CWE-621, and similar issues.",
+                    "EFFECTIVENESS":"",
+                    "Note":""
+            }]},
+            "observed_examples":{
+                "observed_example":[{
+                    "REFERENCE":"CVE-2014-8958",
+                    "DESCRIPTION":"Admin GUI allows XSS through cookie.",
+                    "LINK":"http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-8958"
+                },{
+                    "REFERENCE":"CVE-2017-9764",
+                    "DESCRIPTION":"Web stats program allows XSS through crafted HTTP header.",
+                    "LINK":"http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-9764"
+                },{
+                    "REFERENCE":"CVE-2014-5198",
+                    "DESCRIPTION":"Web log analysis product allows XSS through crafted HTTP Referer header.",
+                    "LINK":"http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5198"
+                },{
+                    "REFERENCE":"CVE-2008-5080",
+                    "DESCRIPTION":"Chain: protection mechanism failure allows XSS",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5080"
+                },{
+                    "REFERENCE":"CVE-2006-4308",
+                    "DESCRIPTION":"Chain: incomplete blacklist (CWE-184) only checks javascript: tag, allowing XSS (CWE-79) using other tags",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-4308"
+                },{
+                    "REFERENCE":"CVE-2007-5727",
+                    "DESCRIPTION":"Chain: incomplete blacklist (CWE-184) only removes SCRIPT tags, enabling XSS (CWE-79)",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-5727"
+                },{
+                    "REFERENCE":"CVE-2008-5770",
+                    "DESCRIPTION":"Reflected XSS using the PATH_INFO in a URL",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5770"
+                },{
+                    "REFERENCE":"CVE-2008-4730",
+                    "DESCRIPTION":"Reflected XSS not properly handled when generating an error message.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-4730"
+                },{
+                    "REFERENCE":"CVE-2008-5734",
+                    "DESCRIPTION":"Reflected XSS sent through email message.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5734"
+                },{
+                    "REFERENCE":"CVE-2008-0971",
+                    "DESCRIPTION":"Stored XSS in a security product.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-0971"
+                },{
+                    "REFERENCE":"CVE-2008-5249",
+                    "DESCRIPTION":"Stored XSS using a wiki page.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5249"
+                },{
+                    "REFERENCE":"CVE-2006-3568",
+                    "DESCRIPTION":"Stored XSS in a guestbook application.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3568"
+                },{
+                    "REFERENCE":"CVE-2006-3211",
+                    "DESCRIPTION":"Stored XSS in a guestbook application using a javascript: URI in a bbcode img tag.",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3211"
+                },{
+                    "REFERENCE":"CVE-2006-3295",
+                    "DESCRIPTION":"Chain: library file is not protected against a direct request (CWE-425), leading to reflected XSS (CWE-79).",
+                    "LINK":"https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2006-3295"
+            }]},
+            "functional_areas": "", 
+            "affected_resources": "", 
+            "taxonomy_mappings":{
+                "taxonomy_mapping":[{
+                    "TAXONOMY NAME":"PLOVER",
+                    "ENTRY ID":"",
+                    "FIT":"",
+                    "ENTRY NAME":"Cross-site scripting (XSS)"
+                },{
+                    "TAXONOMY NAME":"7 Pernicious Kingdoms",
+                    "ENTRY ID":"",
+                    "FIT":"",
+                    "ENTRY NAME":"Cross-site Scripting"
+                },{
+                    "TAXONOMY NAME":"CLASP",
+                    "ENTRY ID":"",
+                    "FIT":"",
+                    "ENTRY NAME":"Cross-site scripting"
+                },{
+                    "TAXONOMY NAME":"OWASP Top Ten 2007",
+                    "ENTRY ID":"A1",
+                    "FIT":"Exact",
+                    "ENTRY NAME":"Cross Site Scripting (XSS)"
+                },{
+                    "TAXONOMY NAME":"OWASP Top Ten 2004",
+                    "ENTRY ID":"A1",
+                    "FIT":"CWE More Specific",
+                    "ENTRY NAME":"Unvalidated Input"
+                },{
+                    "TAXONOMY NAME":"OWASP Top Ten 2004",
+                    "ENTRY ID":"A4",
+                    "FIT":"Exact",
+                    "ENTRY NAME":"Cross-Site Scripting (XSS) Flaws"
+                },{
+                    "TAXONOMY NAME":"WASC",
+                    "ENTRY ID":"8",                    
+                    "FIT":"",
+                    "ENTRY NAME":"Cross-site Scripting"
+                },{
+                    "TAXONOMY NAME":"Software Fault Patterns",
+                    "ENTRY ID":"SFP24",
+                    "FIT":"",
+                    "ENTRY NAME":"Tainted input to command"
+                },{
+                    "TAXONOMY NAME":"OMG ASCSM",
+                    "ENTRY ID":"ASCSM-CWE-79",
+                    "FIT":"",
+                    "ENTRY NAME":""
+            }]},
+            "related_attack_patterns": "::209::588::591::592::63::85::",
+            "notes":{
+                "note":{
+                    "TYPE":"Relationship",
+                    "NOTE":"There can be a close relationship between XSS and CSRF (CWE-352). An attacker might use CSRF in order to trick the victim into submitting requests to the server in which the requests contain an XSS payload. A well-known example of this was the Samy worm on MySpace [REF-956]. The worm used XSS to insert malicious HTML sequences into a user's profile and add the attacker as a MySpace friend. MySpace friends of that victim would then execute the payload to modify their own profiles, causing the worm to propagate exponentially. Since the victims did not intentionally insert the malicious script themselves, CSRF was a root cause."
+                }}
+        }
+    }]
+} 
+			
+		
+	
+}  
+		 ]
+} 
+			
+		
+	
