@@ -1,7 +1,8 @@
 # cyberKG
 
-1. What this repo is all about?
-   little overview of cyberKG
+1. cyberKG
+   This repository contains the source code of the cyberKG. This is an autonomously vulnerability knowledge graph based on the Labelled Property Graphs (LPGs). It was constructed using heterogeneous data sources (i.e., structured and unstructured sources). 
+
 3. How to setup?
    instructions to setup the system including libraries, neo4j database etc
 4. How to run the system?
