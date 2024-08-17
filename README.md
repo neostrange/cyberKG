@@ -1,11 +1,16 @@
 # cyberKG
+   This repository contains the source code of the cyberKG. This is an autonomously vulnerability knowledge graph based on the Labelled Property Graphs (LPGs). It was constructed using heterogeneous data sources. 
 
-1. **cyberKG**
-   This repository contains the source code of the cyberKG. This is an autonomously vulnerability knowledge graph based on the Labelled Property Graphs (LPGs). It was constructed using heterogeneous data sources (i.e., structured and unstructured sources). 
+# Datasets
+The datasets are available in the "Input/" directory.
 
-3. How to setup?
-   instructions to setup the system including libraries, neo4j database etc
-4. How to run the system?
-   Step by step instructions to run the system. 
-
-Python code to parse the CVE dataset and store it into neo4j database.
+# Requirements
+   Python >= 3.6\
+   Neo4j Desktop (Community Edition, version 1.5.7).\
+   [cwe2 library] (https://github.com/nexB/cwe2). \
+   [Cpe parser] (https://github.com/sabuhish/cpe-parser). \
+   AllenNLP.\
+   entity-fishing.\
+   spaCy library.
+# How to run the code
+   You can run the code using [The_code.ipynb](https://github.com/neostrange/cyberKG/blob/main/Code/The_code.ipynb).
