@@ -14,3 +14,5 @@ The datasets are available in the "Input/" directory.
    [spaCy library](https://spacy.io/).
 # How to run the code
    You can run the code using [The_code.ipynb](https://github.com/neostrange/cyberKG/blob/main/Code/The_code.ipynb).
+# Zenodo
+   You can see the cyberKG Model (https://zenodo.org/records/14796080)
