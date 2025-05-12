@@ -1,0 +1,1212 @@
+{"Text1":{
+
+  "entities": [
+    {
+      "entity": "PureCrypter",
+      "type": "malware"
+    },
+    {
+      "entity": "Agent Tesla",
+      "type": "malware"
+    },
+    {
+      "entity": "TorNet",
+      "type": "malware"
+    },
+    {
+      "entity": "Snake Keylogger",
+      "type": "malware"
+    },
+    {
+      "entity": "financially motivated threat actor",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "phishing email campaign",
+      "type": "campaign"
+    },
+    {
+      "entity": "Poland",
+      "type": "location"
+    },
+    {
+      "entity": "Germany",
+      "type": "location"
+    },
+    {
+      "entity": "Windows",
+      "type": "software"
+    },
+    {
+      "entity": "Cisco Talos",
+      "type": "identity"
+    },
+    {
+      "entity": "Chetan Raghuprasad",
+      "type": "identity"
+    },
+    {
+      "entity": "financial institutions",
+      "type": "identity"
+    },
+    {
+      "entity": "manufacturing companies",
+      "type": "identity"
+    },
+    {
+      "entity": "logistics companies",
+      "type": "identity"
+    },
+    {
+      "entity": "anti-debugger",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "anti-analysis",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "anti-VM",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "anti-malware",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "hidden text salting",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "Pisco",
+      "type": "tool"
+    },
+    {
+      "entity": "Omid Mirzaei",
+      "type": "identity"
+    }
+  ],
+  "relationships": [
+    {
+      "relation": "uses",
+      "source": "financially motivated threat actor",
+      "target": "phishing email campaign"
+    },
+    {
+      "relation": "uses",
+      "source": "phishing email campaign",
+      "target": "PureCrypter"
+    },
+    {
+      "relation": "uses",
+      "source": "PureCrypter",
+      "target": "TorNet"
+    },
+    {
+      "relation": "uses",
+      "source": "PureCrypter",
+      "target": "Agent Tesla"
+    },
+    {
+      "relation": "uses",
+      "source": "PureCrypter",
+      "target": "Snake Keylogger"
+    },
+    {
+      "relation": "targets",
+      "source": "financially motivated threat actor",
+      "target": "Poland"
+    },
+    {
+      "relation": "targets",
+      "source": "financially motivated threat actor",
+      "target": "Germany"
+    },
+    {
+      "relation": "targets",
+      "source": "phishing email campaign",
+      "target": "financial institutions"
+    },
+    {
+      "relation": "targets",
+      "source": "phishing email campaign",
+      "target": "manufacturing companies"
+    },
+    {
+      "relation": "targets",
+      "source": "phishing email campaign",
+      "target": "logistics companies"
+    },
+    {
+      "relation": "affects",
+      "source": "TorNet",
+      "target": "Windows"
+    },
+    {
+      "relation": "has",
+      "source": "TorNet",
+      "target": "anti-debugger"
+    },
+    {
+      "relation": "has",
+      "source": "TorNet",
+      "target": "anti-analysis"
+    },
+    {
+      "relation": "has",
+      "source": "TorNet",
+      "target": "anti-VM"
+    },
+    {
+      "relation": "has",
+      "source": "TorNet",
+      "target": "anti-malware"
+    },
+    {
+      "relation": "uses",
+      "source": "phishing email campaign",
+      "target": "hidden text salting"
+    },
+    {
+      "relation": "uses",
+      "source": "Omid Mirzaei",
+      "target": "Pisco"
+    }
+  ]
+}
+ ,"Text2":{
+  "entities": [
+    {
+      "entity": "Salt Labs",
+      "type": "identity"
+    },
+    {
+      "entity": "Amit Elbirt",
+      "type": "identity"
+    },
+    {
+      "entity": "OAuth Redirect Flaw",
+      "type": "vulnerability"
+    },
+    {
+      "entity": "airline service provider",
+      "type": "identity"
+    },
+    {
+      "entity": "rental booking service",
+      "type": "software"
+    },
+    {
+      "entity": "account hijacking",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "API supply chain attacks",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "standard distribution channels",
+      "type": "tool"
+    },
+    {
+      "entity": "login credentials",
+      "type": "tool"
+    },
+    {
+      "entity": "personal information",
+      "type": "identity"
+    }
+  ],
+  "relationships": [
+    {
+      "relation": "exploits",
+      "source": "OAuth Redirect Flaw",
+      "target": "rental booking service"
+    },
+    {
+      "relation": "affects",
+      "source": "OAuth Redirect Flaw",
+      "target": "airline service provider"
+    },
+    {
+      "relation": "uses",
+      "source": "API supply chain attacks",
+      "target": "OAuth Redirect Flaw"
+    },
+    {
+      "relation": "uses",
+      "source": "account hijacking",
+      "target": "login credentials"
+    },
+    {
+      "relation": "targets",
+      "source": "account hijacking",
+      "target": "personal information"
+    }
+  ]
+},
+
+"Text3":{
+  
+  "entities": [
+    {
+      "entity": "AI SOC Analyst",
+      "type": "tool"
+    },
+    {
+      "entity": "Security Orchestration, Automation, and Response",
+      "type": "tool"
+    },
+    {
+      "entity": "SIEM",
+      "type": "software"
+    },
+    {
+      "entity": "EDR",
+      "type": "software"
+    },
+    {
+      "entity": "Identity",
+      "type": "software"
+    },
+    {
+      "entity": "Email",
+      "type": "software"
+    },
+    {
+      "entity": "Cloud",
+      "type": "software"
+    },
+    {
+      "entity": "case management",
+      "type": "software"
+    },
+    {
+      "entity": "collaboration tools",
+      "type": "software"
+    },
+    {
+      "entity": "AI-powered attacks",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "AI-generated phishing emails",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "manual SOC processes",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "agentic frameworks",
+      "type": "software"
+    },
+    {
+      "entity": "large language models",
+      "type": "software"
+    },
+    {
+      "entity": "generative AI",
+      "type": "software"
+    },
+    {
+      "entity": "MDR/MSSP vendors",
+      "type": "identity"
+    }
+  ],
+  "relationships": [
+    {
+      "relation": "uses",
+      "source": "AI-powered attacks",
+      "target": "AI-generated phishing emails"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "SIEM"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "EDR"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "Identity"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "Email"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "Cloud"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "case management"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "collaboration tools"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "large language models"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "agentic frameworks"
+    },
+    {
+      "relation": "uses",
+      "source": "AI SOC Analyst",
+      "target": "generative AI"
+    }
+  ]
+}
+,
+"Text4":{
+  
+  "entities": [
+    {
+      "entity": "Andariel",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "ESXi",
+      "type": "software"
+    },
+    {
+      "entity": "Windows",
+      "type": "software"
+    },
+    {
+      "entity": "PsExec",
+      "type": "tool"
+    },
+    {
+      "entity": "JuicyPotato",
+      "type": "tool"
+    },
+    {
+      "entity": "Relative Identifier hijacking",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "SSH tunneling",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "NtContinue",
+      "type": "tool"
+    },
+    {
+      "entity": "SetThreadContext",
+      "type": "tool"
+    },
+    {
+      "entity": "Event Tracing for Windows",
+      "type": "software"
+    },
+    {
+      "entity": "EDR",
+      "type": "software"
+    },
+    {
+      "entity": "Remote Desktop Protocol",
+      "type": "software"
+    },
+    {
+      "entity": "AMSI",
+      "type": "software"
+    },
+    {
+      "entity": "AhnLab Security Intelligence Center",
+      "type": "identity"
+    },
+    {
+      "entity": "Sygnia",
+      "type": "identity"
+    },
+    {
+      "entity": "Praetorian",
+      "type": "identity"
+    }
+  ],
+  "relationships": [
+    {
+      "relation": "uses",
+      "source": "Andariel",
+      "target": "Relative Identifier hijacking"
+    },
+    {
+      "relation": "uses",
+      "source": "Andariel",
+      "target": "PsExec"
+    },
+    {
+      "relation": "uses",
+      "source": "Andariel",
+      "target": "JuicyPotato"
+    },
+    {
+      "relation": "uses",
+      "source": "Andariel",
+      "target": "Remote Desktop Protocol"
+    },
+    {
+      "relation": "targets",
+      "source": "Andariel",
+      "target": "Windows"
+    },
+    {
+      "relation": "uses",
+      "source": "unknown threat actor",
+      "target": "SSH tunneling"
+    },
+    {
+      "relation": "targets",
+      "source": "unknown threat actor",
+      "target": "ESXi"
+    },
+    {
+      "relation": "uses",
+      "source": "unknown threat actor",
+      "target": "ESXi"
+    },
+    {
+      "relation": "uses",
+      "source": "unknown threat actor",
+      "target": "NtContinue"
+    },
+    {
+      "relation": "uses",
+      "source": "unknown threat actor",
+      "target": "hardware breakpoints"
+    },
+    {
+      "relation": "uses",
+      "source": "unknown threat actor",
+      "target": "patchless hooks"
+    },
+    {
+      "relation": "uses",
+      "source": "unknown threat actor",
+      "target": "EDR"
+    },
+    {
+      "relation": "uses",
+      "source": "unknown threat actor",
+      "target": "Event Tracing for Windows"
+    },
+    {
+      "relation": "uses",
+      "source": "unknown threat actor",
+      "target": "AMSI"
+    },
+    {
+      "relation": "affects",
+      "source": "Relative Identifier hijacking",
+      "target": "Windows"
+    },
+    {
+      "relation": "affects",
+      "source": "SSH tunneling",
+      "target": "ESXi"
+    },
+    {
+      "relation": "located-at",
+      "source": "Andariel",
+      "target": "North Korea"
+    }
+  ]
+},
+"Text5":{
+  
+  "entities": [
+    {
+      "entity": "Hashcat",
+      "type": "tool"
+    },
+    {
+      "entity": "L0phtcrack",
+      "type": "tool"
+    },
+    {
+      "entity": "John Ripper",
+      "type": "tool"
+    },
+    {
+      "entity": "MD5",
+      "type": "software"
+    },
+    {
+      "entity": "SHA256",
+      "type": "software"
+    },
+    {
+      "entity": "bcrypt",
+      "type": "software"
+    },
+    {
+      "entity": "Nvidia RTX 4090",
+      "type": "software"
+    },
+    {
+      "entity": "WordPress",
+      "type": "software"
+    },
+    {
+      "entity": "Specops",
+      "type": "identity"
+    },
+    {
+      "entity": "National Institute of Standards and Technology",
+      "type": "identity"
+    },
+    {
+      "entity": "National Security Agency",
+      "type": "identity"
+    },
+    {
+      "entity": "Brute force attack",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "Password dictionary attack",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "Hybrid attack",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "Mask attack",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "Credential reuse",
+      "type": "attack-pattern"
+    }
+  ],
+  "relationships": [
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "Brute force attack"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "Password dictionary attack"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "Hybrid attack"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "Mask attack"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "Credential reuse"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "Hashcat"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "L0phtcrack"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "John Ripper"
+    },
+    {
+      "relation": "uses",
+      "source": "Hashcat",
+      "target": "Nvidia RTX 4090"
+    },
+    {
+      "relation": "uses",
+      "source": "WordPress",
+      "target": "MD5"
+    },
+    {
+      "relation": "affects",
+      "source": "MD5",
+      "target": "WordPress"
+    },
+    {
+      "relation": "located-at",
+      "source": "National Institute of Standards and Technology",
+      "target": "United States"
+    },
+    {
+      "relation": "located-at",
+      "source": "National Security Agency",
+      "target": "United States"
+    }
+  ]
+}
+,
+
+"Text6":{
+  
+  "entities": [
+    {
+      "entity": "malicious web traffic",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "prompt injection",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "cross-site scripting",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "ransomware development",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "stealer malware",
+      "type": "malware"
+    },
+    {
+      "entity": "China",
+      "type": "location"
+    },
+    {
+      "entity": "United States",
+      "type": "location"
+    },
+    {
+      "entity": "KnowBe4",
+      "type": "identity"
+    },
+    {
+      "entity": "Erich Kron",
+      "type": "identity"
+    },
+    {
+      "entity": "Johann Rehberger",
+      "type": "identity"
+    },
+    {
+      "entity": "Kela",
+      "type": "identity"
+    },
+    {
+      "entity": "Meta",
+      "type": "identity"
+    },
+    {
+      "entity": "Anthropic",
+      "type": "identity"
+    },
+    {
+      "entity": "OpenAI",
+      "type": "identity"
+    },
+    {
+      "entity": "NVIDIA",
+      "type": "identity"
+    },
+    {
+      "entity": "Sam Altman",
+      "type": "identity"
+    },
+    {
+      "entity": "Jim Fan",
+      "type": "identity"
+    },
+    {
+      "entity": "GEAR Lab",
+      "type": "identity"
+    },
+    {
+      "entity": "H800 GPU",
+      "type": "software"
+    }
+  ],
+  "relationships": [
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "malicious web traffic"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "prompt injection"
+    },
+    {
+      "relation": "uses",
+      "source": "prompt injection",
+      "target": "cross-site scripting"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "ransomware development"
+    },
+    {
+      "relation": "uses",
+      "source": "threat-actor",
+      "target": "stealer malware"
+    },
+    {
+      "relation": "located-at",
+      "source": "Kela",
+      "target": "United States"
+    },
+    {
+      "relation": "located-at",
+      "source": "Meta",
+      "target": "United States"
+    },
+    {
+      "relation": "located-at",
+      "source": "Anthropic",
+      "target": "United States"
+    },
+    {
+      "relation": "located-at",
+      "source": "OpenAI",
+      "target": "United States"
+    },
+    {
+      "relation": "located-at",
+      "source": "NVIDIA",
+      "target": "United States"
+    },
+    {
+      "relation": "located-at",
+      "source": "GEAR Lab",
+      "target": "United States"
+    }
+  ]
+}
+,
+"Text7":{
+  
+  "entities": [
+    {
+      "entity": "Hackrate",
+      "type": "identity"
+    },
+    {
+      "entity": "OWASP",
+      "type": "identity"
+    },
+    {
+      "entity": "OWASP guidelines",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "web applications",
+      "type": "software"
+    },
+    {
+      "entity": "penetration testing",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "manual testing",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "automated testing",
+      "type": "attack-pattern"
+    },
+    {
+      "entity": "Security Operation Center",
+      "type": "identity"
+    }
+  ],
+  "relationships": [
+    {
+      "relation": "uses",
+      "source": "Hackrate",
+      "target": "penetration testing"
+    },
+    {
+      "relation": "uses",
+      "source": "Hackrate",
+      "target": "OWASP guidelines"
+    },
+    {
+      "relation": "has",
+      "source": "penetration testing",
+      "target": "manual testing"
+    },
+    {
+      "relation": "has",
+      "source": "penetration testing",
+      "target": "automated testing"
+    },
+    {
+      "relation": "targets",
+      "source": "penetration testing",
+      "target": "web applications"
+    },
+    {
+      "relation": "uses",
+      "source": "OWASP",
+      "target": "OWASP guidelines"
+    }
+  ]
+
+}
+,"Text8":{
+
+  "entities": [
+    {
+      "entity": "Nikolay Alexandrovich Korchagin",
+      "type": "identity"
+    },
+    {
+      "entity": "Vitaly Shevchenko",
+      "type": "identity"
+    },
+    {
+      "entity": "Yuriy Fedorovich Denisov",
+      "type": "identity"
+    },
+    {
+      "entity": "GRU Unit 29155",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "Cadet Blizzard",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "Ember Bear",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "FROZENVISTA",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "Nodaria",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "Ruinous Ursa",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "UAC-0056",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "UNC2589",
+      "type": "threat-actor"
+    },
+    {
+      "entity": "Estonia",
+      "type": "location"
+    },
+    {
+      "entity": "European Union",
+      "type": "identity"
+    },
+    {
+      "entity": "North Atlantic Treaty Organization",
+      "type": "identity"
+    },
+    {
+      "entity": "Ukraine",
+      "type": "location"
+    },
+    {
+      "entity": "United States",
+      "type": "location"
+    }
+  ],
+  "relationships": [
+    {
+      "relation": "attributed-to",
+      "source": "Cadet Blizzard",
+      "target": "GRU Unit 29155"
+    },
+    {
+      "relation": "attributed-to",
+      "source": "Ember Bear",
+      "target": "GRU Unit 29155"
+    },
+    {
+      "relation": "attributed-to",
+      "source": "FROZENVISTA",
+      "target": "GRU Unit 29155"
+    },
+    {
+      "relation": "attributed-to",
+      "source": "Nodaria",
+      "target": "GRU Unit 29155"
+    },
+    {
+      "relation": "attributed-to",
+      "source": "Ruinous Ursa",
+      "target": "GRU Unit 29155"
+    },
+    {
+      "relation": "attributed-to",
+      "source": "UAC-0056",
+      "target": "GRU Unit 29155"
+    },
+    {
+      "relation": "attributed-to",
+      "source": "UNC2589",
+      "target": "GRU Unit 29155"
+    },
+    {
+      "relation": "targets",
+      "source": "GRU Unit 29155",
+      "target": "Estonia"
+    },
+    {
+      "relation": "targets",
+      "source": "GRU Unit 29155",
+      "target": "North Atlantic Treaty Organization"
+    },
+    {
+      "relation": "targets",
+      "source": "GRU Unit 29155",
+      "target": "European Union"
+    },
+    {
+      "relation": "targets",
+      "source": "GRU Unit 29155",
+      "target": "Ukraine"
+    },
+    {
+      "relation": "targets",
+      "source": "GRU Unit 29155",
+      "target": "United States"
+    },
+    {
+      "relation": "located-at",
+      "source": "Nikolay Alexandrovich Korchagin",
+      "target": "Russia"
+    },
+    {
+      "relation": "located-at",
+      "source": "Vitaly Shevchenko",
+      "target": "Russia"
+    },
+    {
+      "relation": "located-at",
+      "source": "Yuriy Fedorovich Denisov",
+      "target": "Russia"
+    }
+  ]
+}
+
+, "Text9":{
+  "entities": [
+    {
+      "entity": "CVE-2025-24085",
+      "type": "vulnerability"
+    },
+    {
+      "entity": "CVE-2025-24160",
+      "type": "vulnerability"
+    },
+    {
+      "entity": "CVE-2025-24161",
+      "type": "vulnerability"
+    },
+    {
+      "entity": "CVE-2025-24163",
+      "type": "vulnerability"
+    },
+    {
+      "entity": "Apple",
+      "type": "identity"
+    },
+    {
+      "entity": "iOS",
+      "type": "software"
+    },
+    {
+      "entity": "macOS Sequoia",
+      "type": "software"
+    },
+    {
+      "entity": "tvOS",
+      "type": "software"
+    },
+    {
+      "entity": "visionOS",
+      "type": "software"
+    },
+    {
+      "entity": "watchOS",
+      "type": "software"
+    },
+    {
+      "entity": "AirPlay",
+      "type": "software"
+    },
+    {
+      "entity": "Core Media",
+      "type": "software"
+    },
+    {
+      "entity": "CoreAudio",
+      "type": "software"
+    },
+    {
+      "entity": "Uri Katz",
+      "type": "identity"
+    },
+    {
+      "entity": "Oligo Security",
+      "type": "identity"
+    },
+    {
+      "entity": "Google Threat Analysis Group",
+      "type": "identity"
+    }
+  ],
+  "relationships": [
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24085",
+      "target": "Core Media"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24085",
+      "target": "iOS"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24085",
+      "target": "macOS Sequoia"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24085",
+      "target": "tvOS"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24085",
+      "target": "visionOS"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24085",
+      "target": "watchOS"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24160",
+      "target": "CoreAudio"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24161",
+      "target": "CoreAudio"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24163",
+      "target": "CoreAudio"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24160",
+      "target": "Apple"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24161",
+      "target": "Apple"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24163",
+      "target": "Apple"
+    },
+    {
+      "relation": "affects",
+      "source": "CVE-2025-24085",
+      "target": "Apple"
+    },
+    {
+      "relation": "located-at",
+      "source": "Uri Katz",
+      "target": "Oligo Security"
+    },
+    {
+      "relation": "located-at",
+      "source": "Google Threat Analysis Group",
+      "target": "Google"
+    }
+  ]
+}
+, "Text10":{
+  "entities": [
+    { "entity": "GitHub Desktop", "type": "software" },
+    { "entity": "GitHub CLI", "type": "software" },
+    { "entity": "Git LFS", "type": "software" },
+    { "entity": "Git Credential Manager", "type": "software" },
+    { "entity": "CVE-2025-23040", "type": "vulnerability" },
+    { "entity": "CVE-2024-50338", "type": "vulnerability" },
+    { "entity": "CVE-2024-53263", "type": "vulnerability" },
+    { "entity": "CVE-2024-53858", "type": "vulnerability" },
+    { "entity": "CVE-2024-52006", "type": "vulnerability" },
+    { "entity": "CVE-2024-50349", "type": "vulnerability" },
+    { "entity": "PureCrypter", "type": "tool" },
+    { "entity": "Agent Tesla", "type": "malware" },
+    { "entity": "Snake Keylogger", "type": "malware" },
+    { "entity": "TorNet", "type": "malware" },
+    { "entity": "Andariel", "type": "threat-actor" },
+    { "entity": "Ry0taK", "type": "identity" },
+    { "entity": "GMO Flatt Security", "type": "identity" },
+    { "entity": "GitHub", "type": "identity" },
+    { "entity": "Taylor Blau", "type": "identity" },
+    { "entity": "Poland", "type": "location" },
+    { "entity": "Germany", "type": "location" }
+  ],
+  "relationships": [
+    { "relation": "affects", "source": "CVE-2025-23040", "target": "GitHub Desktop" },
+    { "relation": "affects", "source": "CVE-2024-50338", "target": "Git Credential Manager" },
+    { "relation": "affects", "source": "CVE-2024-53263", "target": "Git LFS" },
+    { "relation": "affects", "source": "CVE-2024-53858", "target": "GitHub CLI" },
+    { "relation": "affects", "source": "CVE-2024-52006", "target": "GitHub Desktop" },
+    { "relation": "affects", "source": "CVE-2024-50349", "target": "GitHub Desktop" },
+    { "relation": "delivers", "source": "PureCrypter", "target": "Agent Tesla" },
+    { "relation": "delivers", "source": "PureCrypter", "target": "Snake Keylogger" },
+    { "relation": "delivers", "source": "PureCrypter", "target": "TorNet" },
+    { "relation": "uses", "source": "Andariel", "target": "RID Hijacking" },
+    { "relation": "targets", "source": "PureCrypter", "target": "Poland" },
+    { "relation": "targets", "source": "PureCrypter", "target": "Germany" },
+    { "relation": "located-at", "source": "GMO Flatt Security", "target": "Japan" },
+    { "relation": "located-at", "source": "Andariel", "target": "North Korea" }
+  ]
+}
+}
